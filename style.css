@@ -1,0 +1,1593 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+    --primary-dark: #0b1d24;
+    --primary-red: #7a0304;
+    --accent-red: #c70507;
+    --primary-teal: #3b8f93;
+    --dark-teal: #2c6a6c;
+    --light-teal: #7fbbbc;
+    --text-light: #cecccb;
+    --text-medium: #a49f98;
+    --text-dark: #333;
+    --background-light: #f4f4f4;
+    --grey-dark: #4f4c43;
+    --white: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --card-bg: rgba(255, 255, 255, 0.05); /* Frosted glass effect for cards on dark bg */
+    --font: 'Candara', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-secondary); /* Use secondary font for base */
+    line-height: 1.6;
+    color: var(--text-light);
+    background: linear-gradient(180deg, var(--dark-teal) 0%, var(--primary-dark) 30%, var(--primary-dark) 70%, #2a0101 100%); /* Teal to Dark Blue/Black to Dark Red gradient */
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background: var(--primary-dark);
+    color: var(--white);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.logo-img {
+    height: 130px; /* Adjusted size */
+    width: auto; /* Maintain aspect ratio */
+    margin-right: 10px;
+    /* Make logo slightly brighter if needed on dark bg */
+    filter: brightness(1.1);
+}
+
+header h1 { /* If you add text next to logo */
+    font-family: var(--font-primary);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+    position: relative; /* For dropdown */
+}
+
+.nav-link {
+    font-family: var(--font-secondary); /* Use secondary font for nav */
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+    font-weight: 500;
+	font-size: 1.1rem; /* Adjusted size */
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.nav-link:hover, .nav-link i:hover {
+    color: var(--accent-red);
+}
+/* Style for the active page link */
+.nav-link.active-page,
+.dropdown-menu a.active-page { /* Also style active in dropdown */
+    color: var(--accent-red);
+    font-weight: 700; /* Make it bolder */
+}
+
+
+.nav-link i {
+    font-size: 0.9em; /* Slightly smaller arrow */
+    margin-left: 5px;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--dark-teal);
+    border-radius: 0 0 5px 5px;
+    box-shadow: var(--shadow);
+    padding: 0.5rem 0;
+    min-width: 180px;
+    z-index: 1001; /* Above other nav items */
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+.dropdown-menu li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--white);
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--light-teal);
+    color: var(--primary-dark);
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+/* Nav Icons */
+.nav-icons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icons a {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    position: relative; /* For cart count positioning */
+}
+
+.nav-icons a:hover {
+    color: var(--accent-red);
+}
+
+/* Active nav icon (like heart on favorites page) */
+.nav-icons a.active-page i {
+     color: var(--accent-red); /* Highlight active icon */
+}
+
+
+/* --- CART COUNT STYLES --- */
+.cart-count {
+    background-color: var(--accent-red);
+    color: var(--white);
+    border-radius: 50%;
+    padding: 0.15em 0.5em; /* Slightly adjust padding */
+    font-size: 0.75rem;
+    font-weight: bold;
+    position: absolute; /* Position relative to the parent anchor */
+    top: -8px;         /* Adjust vertical position */
+    right: -12px;       /* Adjust horizontal position */
+    line-height: 1;
+    text-decoration: none !important; /* Override potential link styles */
+    border: none !important;          /* Override potential border styles */
+    display: inline-block; /* Ensure it displays */
+}
+
+.cart-count.is-empty {
+    display: none; /* Hide the span when this class is present */
+}
+
+.profile-menu {
+    position: relative;
+}
+
+.profile-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px); /* Position below icon */
+    right: 0;
+    background-color: var(--dark-teal);
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    padding: 0.5rem 0;
+    min-width: 180px;
+    z-index: 1001;
+}
+
+.profile-dropdown-menu.active {
+    display: block;
+}
+
+.profile-dropdown-menu a, .profile-dropdown-menu button {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--white);
+    text-decoration: none;
+    background: none;
+    border: none;
+    margin: 0;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+}
+
+.profile-dropdown-menu a:hover, .profile-dropdown-menu button:hover {
+	background-color: var(--light-teal);
+    color: var(--primary-dark);
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Hero Slider (Swiper) */
+.hero-slider {
+    height: 70vh; /* Maybe slightly taller */
+    min-height: 450px;
+    width: 100%;
+    margin-bottom: 2rem;
+	position: relative;
+}
+
+.swiper {
+    height: 100%;
+}
+
+.swiper-wrapper {
+    height: 100%;
+}
+
+.swiper-slide {
+	height: 100%;
+	text-align: center;
+    font-size: 18px;
+    background-size: cover;
+    background-position: center;
+	background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    position: relative; /* For pseudo-element overlay */
+}
+
+.swiper-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65); /* Slightly darker overlay */
+    z-index: 1;
+}
+
+.slide-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px; /* Slightly narrower */
+	padding: 2rem;
+}
+
+.swiper-slide .title {
+    font-size: 3.5rem; /* Larger title */
+    font-weight: 700;
+    font-family: var(--font-primary); /* Use primary font */
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8); /* Stronger shadow */
+}
+
+.swiper-slide .subtitle {
+    font-size: 1.6rem; /* Larger subtitle */
+    font-weight: 400;
+    font-family: var(--font-primary); /* Use primary font */
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.swiper-slide .text p {
+    font-size: 1.1rem;
+    max-width: 750px; /* Control paragraph width */
+    margin: 0 auto;
+    font-family: var(--font-secondary);
+    line-height: 1.7;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+.swiper-pagination-bullet-active {
+    background-color: var(--light-teal) !important;
+    transform: scale(1.2); /* Make active bullet larger */
+}
+.swiper-button-next, .swiper-button-prev {
+    color: var(--white) !important; /* Ensure visibility */
+    background-color: rgba(0,0,0, 0.3);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: -20px;
+    transition: background-color 0.3s;
+}
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    background-color: rgba(0,0,0, 0.6);
+}
+.swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Featured Locations */
+.featured-locations {
+    padding: 3rem 0; /* More padding */
+    text-align: center;
+}
+
+.featured-locations h2 {
+    font-family: var(--font-primary);
+    font-size: 2.8rem; /* Larger heading */
+    color: var(--light-teal);
+    margin-bottom: 2.5rem; /* More space below */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Min card width 320px */
+    gap: 2rem; /* More gap */
+}
+
+.location-card {
+    background: var(--card-bg); /* Frosted glass */
+    border: 1px solid rgba(206, 204, 203, 0.2); /* Light border */
+    border-radius: 10px; /* More rounded */
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--text-light);
+    backdrop-filter: blur(6px); /* Slightly stronger blur */
+    -webkit-backdrop-filter: blur(6px); /* Safari */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack elements vertically */
+    height: 100%; /* Ensure cards in a row take same height if needed */
+}
+
+.location-card:hover {
+    transform: translateY(-8px); /* Lift more on hover */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25); /* Larger shadow on hover */
+}
+
+.location-card img {
+    width: 100%;
+    height: 220px; /* Increased image height */
+    object-fit: cover;
+    border-radius: 6px; /* Slightly rounded image corners */
+    margin-bottom: 1rem;
+}
+
+.location-card h3 {
+    font-family: var(--font-primary);
+    font-size: 1.4rem; /* Adjusted size */
+    color: var(--light-teal);
+    margin-bottom: 0.75rem;
+    line-height: 1.3; /* Prevent overly tall H3s */
+}
+
+.location-card p {
+    font-family: var(--font-secondary);
+    font-size: 0.95rem; /* Slightly larger text */
+    color: var(--text-medium);
+    margin-bottom: 1.5rem; /* More space below text */
+    flex-grow: 1; /* Allows text to take up space, pushing map/button down */
+}
+
+.mini-map {
+    height: 180px; /* Larger map */
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    background-color: var(--grey-dark); /* Placeholder bg */
+    border: 1px solid var(--text-medium); /* Subtle border */
+}
+
+/* Placeholder for map data unavailable (generated by JS if map data is bad) */
+.location-entry-map-placeholder,
+.map-error-msg { /* Can be a P tag with this class */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Fill the map container */
+    min-height: 150px; /* Minimum visual height */
+    background-color: var(--grey-dark);
+    color: var(--text-medium);
+    font-style: italic;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px; /* Match map styling if any */
+    border: 1px dashed var(--text-medium);
+}
+
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: var(--accent-red);
+    color: var(--white);
+    padding: 0.8rem 1.8rem; /* More padding */
+    border: none;
+    border-radius: 25px; /* Rounded pill shape */
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: var(--font-secondary); /* Use secondary font for buttons */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    text-align: center; /* Ensure text is centered */
+}
+
+.btn:hover {
+    background-color: var(--primary-red);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add shadow on hover */
+}
+
+.btn-fav {
+    background: var(--primary-teal);
+    margin-top: auto; /* Push button to bottom of card flex container */
+}
+.btn-fav:hover {
+    background: var(--dark-teal);
+}
+.btn-fav .far, .btn-fav .fas { /* For filled/unfilled heart */
+    margin-right: 8px; /* More space */
+}
+
+/* Specific button styles for secondary actions, like reset */
+.btn-secondary {
+    background-color: var(--grey-dark);
+    color: var(--text-light);
+}
+.btn-secondary:hover {
+    background-color: #666; /* Slightly lighter grey on hover */
+}
+
+
+/* Footer */
+footer {
+    background: var(--primary-dark);
+    color: var(--text-medium);
+    padding: 3rem 0 1.5rem; /* Adjusted padding */
+    margin-top: 4rem; /* More space before footer */
+    border-top: 4px solid var(--primary-teal); /* Thicker top border */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2.5rem; /* Increased gap */
+}
+
+.footer-contact, .footer-info {
+    flex-basis: calc(50% - 1.25rem); /* Ensure gap calculation is correct */
+    min-width: 300px;
+}
+
+.footer-contact h4, .footer-info h4 {
+    font-family: var(--font-primary);
+    color: var(--light-teal);
+    font-size: 1.6rem; /* Larger footer headings */
+    margin-bottom: 1.2rem; /* More space */
+    border-bottom: 1px solid var(--grey-dark);
+    padding-bottom: 0.5rem;
+}
+
+#contact-form input, #contact-form textarea {
+    width: 100%;
+    padding: 0.8rem; /* More padding */
+    margin-bottom: 1rem; /* More spacing */
+    border-radius: 5px;
+    border: 1px solid var(--grey-dark);
+    background-color: rgba(255,255,255,0.08); /* Slightly more opaque */
+    color: var(--text-light);
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+}
+#contact-form input::placeholder, #contact-form textarea::placeholder {
+    color: var(--text-medium);
+    opacity: 0.8;
+}
+
+.footer-info p {
+    margin-bottom: 0.75rem; /* More space */
+    font-size: 1rem;
+}
+.footer-info i {
+    margin-right: 12px; /* More space */
+    color: var(--light-teal);
+    width: 15px; /* Align icons */
+    text-align: center;
+}
+
+.social-media a {
+    color: var(--text-medium);
+    font-size: 1.6rem; /* Larger social icons */
+    margin-right: 18px;
+    transition: color 0.3s ease, transform 0.2s ease;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    display: inline-block; /* Needed for transform */
+}
+.social-media a span { display: inline-block; } /* Needed for icon transform */
+
+.social-media a:hover span {
+    color: var(--accent-red);
+	transform: translateY(-3px); /* Lift icon more */
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 2.5rem; /* More space */
+    padding-top: 1.5rem; /* More space */
+    border-top: 1px solid var(--grey-dark);
+    font-size: 0.9rem;
+    color: var(--text-medium);
+}
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Darker overlay */
+    backdrop-filter: blur(8px); /* Stronger blur */
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    margin: 10% auto;
+    padding: 30px; /* More padding */
+    border: 1px solid var(--primary-teal);
+    border-radius: 10px; /* More rounded */
+    width: 90%;
+    max-width: 480px; /* Slightly wider */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6); /* Stronger shadow */
+    position: relative;
+}
+
+.close-btn {
+    color: var(--text-medium);
+    position: absolute; /* Position explicitly */
+    top: 15px;
+    right: 20px;
+    font-size: 32px; /* Larger */
+    font-weight: bold;
+    line-height: 1;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--light-teal);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal h2 {
+    font-family: var(--font-primary);
+    color: var(--light-teal);
+    margin-bottom: 2rem; /* More space */
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.modal label {
+    display: block;
+    margin-bottom: 0.6rem; /* More space */
+    color: var(--text-medium);
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.modal input[type="text"],
+.modal input[type="email"],
+.modal input[type="password"],
+.modal input[type="date"],
+.modal select {
+    width: 100%;
+    padding: 12px; /* More padding */
+    margin-bottom: 1.2rem; /* More space */
+    border-radius: 5px;
+    border: 1px solid var(--grey-dark);
+    background-color: rgba(255,255,255,0.1);
+    color: var(--text-light);
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+}
+.modal input::placeholder {
+    color: var(--text-medium);
+    opacity: 0.7;
+}
+.modal .btn {
+    width: 100%;
+    margin-top: 1rem; /* More space above button */
+    padding: 0.9rem; /* Adjust button padding */
+    font-size: 1rem;
+}
+.modal p {
+    margin-top: 1.5rem; /* More space */
+    text-align: center;
+    font-size: 0.9rem;
+}
+.modal p a {
+    color: var(--light-teal);
+    text-decoration: none;
+    font-weight: 500;
+}
+.modal p a:hover {
+    text-decoration: underline;
+    color: var(--accent-red); /* Change hover color */
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .logo-link { margin-bottom: 1rem; }
+    nav {
+        margin-top: 0; /* Removed top margin */
+        width: 100%;
+    }
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+    }
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+    .nav-link {
+        display: block;
+        padding: 0.8rem 1rem; /* Adjust padding */
+        background: rgba(255, 255, 255, 0.05); /* Subtle bg for clarity */
+        border-radius: 4px;
+    }
+    .dropdown-menu {
+        position: static; /* Static for mobile dropdown */
+        background-color: transparent;
+        box-shadow: none;
+        padding-left: 1.5rem; /* Indent sub-items more */
+        border-left: 2px solid var(--primary-teal);
+        margin-top: 0.5rem;
+        display: none; /* Initially hide */
+        width: auto; /* Let content determine width */
+        min-width: 0; /* Override previous min-width */
+    }
+    /* Logic for opening mobile dropdown in JS needed - basic toggle: */
+    .dropdown.open .dropdown-menu { display: block; }
+
+    .dropdown-menu li a {
+        color: var(--text-light);
+        padding: 0.6rem 1rem;
+    }
+    .dropdown-menu li a:hover {
+        background-color: var(--light-teal);
+        color: var(--primary-dark);
+    }
+    .dropdown .nav-link i { display: inline-block; /* Ensure chevron shows */}
+
+
+    .nav-icons {
+        margin-top: 1rem;
+        align-self: flex-end; /* Icons to the right on mobile when nav is stacked */
+        margin-left: 0; /* Reset margin */
+    }
+	.nav-icons a { margin-left: 15px; /* Adjust spacing for mobile */ }
+
+
+    .profile-dropdown-menu { /* Ensure dropdown isn't cut off */
+        right: auto;
+        left: 0;
+        width: 100%; /* Full width on mobile */
+        box-sizing: border-box;
+    }
+
+    .hero-slider {
+        height: 60vh; /* Shorter slider on mobile */
+    }
+    .swiper-slide .title { font-size: 2.5rem; }
+    .swiper-slide .subtitle { font-size: 1.4rem; }
+
+    .footer-container {
+        flex-direction: column;
+    }
+     .footer-contact, .footer-info {
+        flex-basis: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    body { font-size: 15px; /* Adjust base font size */ }
+
+    .header-container .logo-link h1 { /* If used */
+        font-size: 1.5rem;
+    }
+    .logo-img { height: 50px; } /* Slightly smaller logo */
+    .nav-icons { justify-content: space-around; width: 100%; margin-left:0; margin-top: 1.5rem;}
+    .nav-icons a { margin: 0 10px; font-size: 1.1rem; }
+
+    .locations-grid {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    }
+    .swiper-button-next, .swiper-button-prev { display: none; } /* Hide arrows on small screens */
+    .swiper-slide .title { font-size: 2rem; }
+    .swiper-slide .subtitle { font-size: 1.2rem; }
+    .swiper-slide .text p { font-size: 1rem;}
+
+    .featured-locations h2 { font-size: 2.2rem;}
+    .location-card h3 { font-size: 1.3rem;}
+
+    .modal-content { margin: 15% auto; } /* Adjust modal margin */
+
+}
+
+@media (max-width: 480px) {
+    .container { width: 95%; } /* Slightly more width */
+    .nav-link { font-size: 1rem;}
+    .nav-icons a { margin-left: 10px; } /* Less spacing */
+    .cart-count { right: -8px; top: -6px;} /* Adjust count pos */
+
+    .hero-slider { min-height: 350px;}
+    .swiper-slide .title { font-size: 1.8rem; }
+    .swiper-slide .subtitle { font-size: 1.1rem; }
+    .swiper-slide .text p { font-size: 0.9rem;}
+
+    .btn { padding: 0.7rem 1.5rem; font-size: 0.85rem; }
+
+    .footer-contact h4, .footer-info h4 { font-size: 1.4rem; }
+
+    .modal-content { padding: 20px; }
+    .modal h2 { font-size: 1.6rem;}
+
+}
+
+/* --- Tours Page Specific Styles --- */
+.tours-page-content {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+.page-title {
+    font-family: var(--font-primary);
+    font-size: 2.8rem;
+    color: var(--light-teal);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.page-intro {
+    font-family: var(--font-secondary);
+    font-size: 1.1rem;
+    color: var(--text-medium);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    line-height: 1.7;
+}
+
+
+/* --- Tours Grid & Cards --- */
+.tours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.tour-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(206, 204, 203, 0.2);
+    border-radius: 10px; /* Match location card */
+    box-shadow: var(--shadow);
+    overflow: hidden; /* To contain the image within rounded corners */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    height: 100%; /* Ensure cards in row are same height */
+}
+
+.tour-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.tour-card img {
+    width: 100%;
+    height: 240px; /* Adjust height */
+    object-fit: cover;
+    display: block;
+}
+
+.tour-card-content {
+    padding: 1.5rem;
+    color: var(--text-light);
+    flex-grow: 1; /* Allows content to fill space */
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-card-content h3 {
+    font-family: var(--font-primary);
+    font-size: 1.6rem;
+    color: var(--light-teal);
+    margin-bottom: 0.5rem;
+}
+
+.tour-fandom {
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    margin-bottom: 1rem;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.tour-description {
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem; /* Space below description */
+    flex-grow: 1; /* Push highlights and button down */
+}
+
+.tour-highlights {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.tour-highlights li {
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    margin-bottom: 0.5rem; /* Increased spacing */
+    display: flex;
+    align-items: center;
+}
+
+.tour-highlights li i {
+    color: var(--primary-teal);
+    margin-right: 10px; /* More space */
+    font-size: 0.8em;
+    min-width: 15px; /* Ensure alignment */
+}
+
+/* Tour Price */
+.tour-price {
+    font-family: var(--font-primary); /* Use primary font for emphasis */
+    font-size: 1.4rem; /* Larger price */
+    font-weight: 700;
+    color: var(--light-teal); /* Use highlight color */
+    margin-bottom: 1.5rem; /* Space below price, before button */
+    text-align: left; /* Align to left */
+}
+
+/* Re-using .btn styles, targeting Add to Cart specifically */
+.btn-add-to-cart {
+    /* Inherits .btn styles */
+    margin-top: auto; /* Push to bottom */
+    width: 100%; /* Full width button */
+}
+
+.btn-add-to-cart i {
+    margin-right: 8px; /* Space between icon and text */
+}
+
+
+/* Responsive adjustments for tour cards */
+@media (max-width: 768px) {
+    .tours-grid {
+        grid-template-columns: 1fr; /* Stack cards */
+    }
+    .page-title { font-size: 2.4rem; }
+    .page-intro { font-size: 1rem; }
+    .tour-card-content h3 { font-size: 1.5rem; }
+    .tour-price { font-size: 1.3rem;}
+}
+
+
+/* --- Fandom/All Location Page Specific Styles --- */
+
+.fandom-page-content {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+/* Filters Section Styles */
+.filters-section {
+	background-color: rgba(11, 29, 36, 0.7); /* Slightly darker */
+    padding: 1.5rem 2rem; /* Adjust padding */
+    border-radius: 8px;
+    margin-bottom: 3rem; /* More space below */
+    border: 1px solid var(--primary-teal);
+}
+.filters-section h3 {
+    font-family: var(--font-primary);
+    color: var(--light-teal);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem; /* Adjust size */
+    text-align: center;
+}
+
+#location-filters {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.5rem 2rem; /* Row and column gap */
+	align-items: flex-end;
+}
+
+.filter-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem; /* Space between label and select */
+}
+
+.filter-group label {
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    font-weight: 500;
+}
+.filter-group select {
+	padding: 0.7rem 1.2rem; /* More padding */
+    border-radius: 5px;
+    border: 1px solid var(--grey-dark);
+    background-color: white;
+    color: var(--grey-dark);
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+    min-width: 180px; /* Give select boxes a min width */
+    cursor: pointer;
+}
+#location-filters button[type="reset"] {
+	padding: 0.7rem 1.5rem; /* Match select padding */
+    margin-bottom: 0; /* Align with bottom of selects */
+    /* Inherits .btn and .btn-secondary */
+}
+
+/* --- Location List & Entries --- */
+/* Container for dynamic locations */
+#wot-location-list,
+#hdm-location-list,
+#hp-location-list,
+#all-locations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; /* Gap between location entries */
+}
+
+/* Loading/No Results messages */
+.loading-message,
+.no-results {
+    font-family: var(--font-secondary);
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-medium);
+    font-style: italic;
+    font-size: 1.1rem;
+    border: 1px dashed var(--grey-dark);
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0.1);
+    margin: 2rem 0; /* Add margin */
+}
+
+
+/* Individual Location Entry */
+.location-entry {
+    background: var(--card-bg);
+    border: 1px solid rgba(206, 204, 203, 0.2);
+    border-radius: 10px; /* Match cards */
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: grid;
+    grid-template-columns: 35% 1fr 30%; /* Swiper | Details | Map - Adjust % */
+    gap: 1.8rem; /* Increased gap */
+    align-items: start;
+    overflow: hidden;
+}
+
+.location-entry-swiper,
+.location-entry-details,
+.location-entry-map {
+    min-width: 0;
+}
+
+/* Column 1: Swiper */
+.location-entry-swiper .location-swiper {
+    width: 100%;
+    height: 380px; /* Taller swiper */
+    border-radius: 6px;
+    background-color: #222;
+    position: relative; /* For nav buttons */
+}
+
+/* Remove overlay from location swiper slides */
+.location-entry .location-swiper .swiper-slide::before,
+.location-entry .location-swiper .swiper-slide::after {
+    background: none !important;
+}
+.location-entry .location-swiper .swiper-slide img {
+    opacity: 1 !important;
+    filter: none !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.location-swiper .swiper-pagination-bullet-active { background-color: var(--light-teal); transform: scale(1.1); }
+.location-swiper .swiper-button-next,
+.location-swiper .swiper-button-prev {
+    color: var(--white);
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 50%;
+    width: 35px; height: 35px;
+    line-height: 35px; margin-top: -17.5px;
+    transition: background-color 0.3s;
+}
+.location-swiper .swiper-button-next::after,
+.location-swiper .swiper-button-prev::after { font-size: 18px; font-weight: bold;}
+.location-swiper .swiper-button-next:hover,
+.location-swiper .swiper-button-prev:hover { background-color: rgba(0,0,0,0.7); }
+
+
+/* Column 2: Details */
+.location-entry-details {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Try to make details fill height */
+}
+.location-entry-details h3 {
+    font-family: var(--font-primary);
+    font-size: 1.8rem; /* Larger title */
+    color: var(--light-teal);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+}
+.location-entry-details .location-fandom {
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    margin-bottom: 1.2rem;
+    font-style: italic;
+    font-weight: 500;
+}
+.location-entry-details .location-description {
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Push actions down */
+}
+.location-entry-details .location-description p {
+    margin-bottom: 1rem;
+}
+.location-entry-details .location-description p:last-child {
+    margin-bottom: 0;
+}
+.location-entry-details .location-actions {
+    margin-top: auto; /* Push actions to bottom */
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center; /* Align button text vertically */
+}
+.location-actions .btn {
+    flex-shrink: 0;
+    padding: 0.7rem 1.5rem; /* Adjust padding if needed */
+}
+/* Reuse .btn-fav styling */
+.location-actions .btn-details { /* Optional styling for details button */
+     background-color: var(--dark-teal);
+}
+.location-actions .btn-details:hover {
+     background-color: var(--primary-teal);
+}
+.location-actions .btn:disabled {
+    background-color: var(--grey-dark);
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* Column 3: Map */
+.location-entry-map .mini-map {
+    width: 100%;
+    height: 380px; /* Match swiper height */
+    border-radius: 6px;
+    background-color: var(--grey-dark);
+    border: 1px solid var(--text-medium); /* Subtle border */
+}
+
+/* Responsive Adjustments for Location Entries */
+@media (max-width: 1100px) { /* Wider breakpoint for switching layout */
+    .location-entry {
+        grid-template-columns: 45% 1fr; /* Swiper + Details, map below */
+        grid-template-areas:
+            "swiper details"
+            "map map";
+        gap: 1.5rem; /* Adjust gap */
+    }
+    .location-entry-swiper { grid-area: swiper; }
+    .location-entry-details { grid-area: details; }
+    .location-entry-map {
+        grid-area: map;
+        height: 350px; /* Adjust map height when stacked */
+    }
+    .location-entry-swiper .location-swiper {
+         height: 350px; /* Match map height */
+    }
+}
+
+@media (max-width: 767px) { /* Mobile */
+    .location-entry {
+        grid-template-columns: 1fr; /* Stack all three */
+         grid-template-areas:
+             "swiper"
+             "details"
+            "map";
+         padding: 1.2rem; /* Adjust padding */
+         gap: 1.5rem;
+    }
+     .location-entry-swiper .location-swiper,
+     .location-entry-map .mini-map {
+        height: 300px; /* Further adjust height */
+     }
+    .location-entry-details h3 { font-size: 1.5rem; }
+    .location-entry-details .location-description { font-size: 0.95rem; }
+}
+
+/* Adjust filter layout on smaller screens */
+@media (max-width: 600px) {
+    #location-filters { flex-direction: column; align-items: stretch; gap: 1rem; }
+    .filter-group { width: 100%; }
+    .filter-group select { width: 100%; } /* Full width selects */
+    #location-filters button[type="reset"] { width: 100%; margin-top: 0.5rem; }
+}
+
+/* === Cart Page Specific Styles === */
+
+.cart-page-content {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+.cart-page-content .page-title { /* Reuse styles if defined globally */
+    font-family: var(--font-primary);
+    font-size: 2.8rem;
+    color: var(--light-teal);
+    text-align: center;
+    margin-bottom: 2rem; /* More space */
+}
+
+.cart-container {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); /* Flexible columns */
+    gap: 2.5rem; /* Increased gap */
+    margin-bottom: 3rem;
+    align-items: start; /* Align tops of grid items */
+}
+
+.cart-items,
+.order-summary,
+.checkout-form-section {
+    background: var(--card-bg);
+    padding: 2rem; /* Consistent padding */
+    border-radius: 10px; /* Match cards */
+    border: 1px solid rgba(206, 204, 203, 0.15);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.cart-items h3,
+.order-summary h3,
+.checkout-form-section h3 {
+    font-family: var(--font-primary);
+    color: var(--light-teal);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-bottom: 1px solid var(--grey-dark);
+    padding-bottom: 0.75rem;
+}
+
+.checkout-form-section h4 {
+    font-family: var(--font-primary);
+    color: var(--text-light);
+    margin-top: 2rem; /* Space above section headers */
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem; /* Larger subheadings */
+}
+
+/* Cart Items Styling */
+#cart-items-list { /* Target the specific container for items */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Gap between cart items */
+}
+
+.cart-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--grey-dark);
+    align-items: flex-start; /* Align items to top */
+    background-color: rgba(255, 255, 255, 0.04); /* Slight item background */
+    border-radius: 6px;
+}
+/* Remove border from last item if inside a container */
+#cart-items-list .cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-image {
+    width: 110px; /* Larger image */
+    height: 110px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid var(--text-medium);
+    flex-shrink: 0;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column; /* Stack details */
+}
+.cart-item-details h4 {
+    font-size: 1.2rem; /* Larger item name */
+    font-family: var(--font-primary);
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+.cart-item-details .item-price { /* Style price specifically */
+    font-size: 1rem;
+    color: var(--text-medium);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.cart-item-quantity {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+.cart-item-quantity label {
+    margin-right: 0.75rem; /* More space */
+    font-size: 0.9rem;
+    color: var(--text-medium);
+}
+.cart-item-quantity .quantity-input {
+    width: 65px; /* Wider input */
+    padding: 0.6rem; /* Adjust padding */
+    text-align: center;
+    border: 1px solid var(--grey-dark);
+    border-radius: 4px;
+    background-color: rgba(255,255,255,0.1);
+    color: var(--text-light);
+    font-size: 1rem;
+    font-family: var(--font-secondary);
+}
+/* Remove arrows from number input */
+.cart-item-quantity .quantity-input::-webkit-outer-spin-button,
+.cart-item-quantity .quantity-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.cart-item-quantity .quantity-input[type=number] { -moz-appearance: textfield; }
+
+/* Style the whole row containing quantity and remove button */
+.cart-item-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Push to bottom of details flex */
+}
+
+
+.btn-remove-item {
+    background: none;
+    border: none;
+    color: var(--accent-red);
+    font-size: 1.1rem; /* Adjust size */
+    cursor: pointer;
+    padding: 0.5rem; /* Easier click target */
+    transition: color 0.3s ease, transform 0.2s ease;
+    /* margin-left: auto; Remove auto margin if using flex space-between */
+}
+.btn-remove-item:hover {
+    color: var(--primary-red);
+    transform: scale(1.1);
+}
+
+.empty-cart-message { /* Re-use from location list styling */
+    /* Styles are defined under Fandom/All location */
+    border-style: solid; /* Maybe solid looks better here */
+    font-size: 1.2rem;
+}
+.empty-cart-message a { /* Specific link style */
+    color: var(--light-teal);
+    text-decoration: underline;
+    font-weight: 500;
+}
+.empty-cart-message a:hover {
+    color: var(--accent-red);
+}
+
+
+/* Order Summary Styling */
+#order-summary-details { /* Target specific container */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Space between summary rows */
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: var(--text-light);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px dashed var(--grey-dark);
+    font-family: var(--font-secondary);
+}
+.summary-row span:first-child { /* Label */
+    color: var(--text-medium);
+}
+.summary-row span:last-child { /* Value */
+    font-weight: 500;
+}
+
+#order-summary-details .summary-row:last-child {
+     border-bottom: none;
+} /* Remove last border */
+
+.summary-row.total-row {
+    font-weight: bold;
+    font-size: 1.3rem; /* Larger total */
+    color: var(--light-teal);
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--text-medium);
+    border-bottom: none; /* Ensure no bottom border */
+}
+.summary-row.total-row span:first-child {
+    color: var(--light-teal); /* Make label match value color */
+}
+
+
+/* Checkout Form Styling */
+.checkout-form-section {
+    margin-top: 0; /* Removed margin, already in grid */
+    grid-column: 1 / -1; /* Span full width below cart/summary */
+    margin-top: 2.5rem; /* Add space above checkout */
+}
+#order-form .form-row { display: flex; gap: 1.5rem; margin-bottom: 0; }
+#order-form .form-row .form-group { flex: 1; } /* Equal width in row */
+
+#order-form .form-group { margin-bottom: 1.2rem; /* More spacing */ }
+#order-form .form-group label { display: block; color: var(--text-medium); margin-bottom: 0.6rem; font-size: 0.9rem; font-family: var(--font-secondary); font-weight: 500;}
+#order-form .form-group input[type="text"],
+#order-form .form-group input[type="email"],
+#order-form .form-group select {
+    width: 100%; padding: 0.8rem; border-radius: 5px; /* More padding */
+    border: 1px solid var(--grey-dark); background-color: rgba(255,255,255,0.1);
+    color: var(--text-light); font-size: 1rem; font-family: var(--font-secondary);
+}
+#order-form .form-group input::placeholder { color: var(--text-medium); opacity: 0.7; }
+#order-form .form-group input[type="checkbox"] { margin-right: 0.6rem; vertical-align: middle; width: auto; accent-color: var(--primary-teal);} /* Style checkbox */
+#order-form .form-group label a { color: var(--light-teal); text-decoration: none; }
+#order-form .form-group label a:hover { text-decoration: underline; color: var(--accent-red); }
+.required { color: var(--accent-red); margin-left: 0.3em; font-weight: bold; }
+
+.btn-checkout {
+    /* Inherits .btn styles */
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+}
+
+
+/* Cart Page Responsive Adjustments */
+@media (max-width: 992px) {
+    .cart-container {
+        grid-template-columns: 1fr; /* Stack items and summary */
+    }
+     .order-summary {
+        margin-top: 0; /* No margin needed when stacked by grid */
+    }
+}
+@media (max-width: 768px) {
+    .checkout-form-section { padding: 1.5rem; } /* Less padding */
+    #order-form .form-row {
+        flex-direction: column;
+        gap: 0; /* Groups have own margin */
+    }
+    .cart-item {
+        flex-direction: column;
+        align-items: center; /* Center image stack */
+        text-align: center; /* Center text */
+        padding: 1.2rem;
+    }
+    .cart-item-image {
+        width: 130px; /* Image slightly larger when stacked */
+        height: 130px;
+        margin-bottom: 1rem; /* Space below image */
+    }
+    .cart-item-details {
+        align-items: center; /* Center details content */
+    }
+    .cart-item-details h4 { font-size: 1.1rem; }
+    .cart-item-controls {
+        flex-direction: column; /* Stack qty and remove button */
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .cart-item-quantity {
+        justify-content: center;
+    }
+    .btn-remove-item {
+        margin-left: 0;
+    }
+    .checkout-form-section h4 { font-size: 1.3rem;}
+
+}
+@media (max-width: 480px) {
+    .cart-page-content .page-title { font-size: 2.2rem;}
+    .cart-item-image { width: 100px; height: 100px; } /* Smaller image on smallest screens */
+}
+
+
+/* === Favorites Page Styles === */
+.favorites-page-content {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+.favorites-map-container {
+    margin-bottom: 3rem;
+    border: 2px solid var(--primary-teal);
+    border-radius: 10px; /* Match other rounded corners */
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+#all-favorites-map {
+    width: 100%;
+    height: 500px; /* Taller map */
+    background-color: var(--grey-dark);
+}
+
+.favorite-locations-list-section h3 {
+    font-family: var(--font-primary);
+    color: var(--light-teal);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-bottom: 1px solid var(--grey-dark);
+    padding-bottom: 0.75rem;
+}
+
+#favorite-locations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Spacing between favorite items */
+}
+
+/* Favorite item list entry */
+.favorite-item-entry {
+    background: rgba(255, 255, 255, 0.04); /* Use subtle bg, slightly different from card-bg */
+    border: 1px solid rgba(206, 204, 203, 0.15);
+    border-radius: 8px;
+    padding: 1.2rem 1.5rem; /* Adjust padding */
+    display: flex;
+    align-items: center;
+    gap: 1.8rem; /* Increase gap */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15); /* Subtle shadow */
+    transition: background-color 0.2s ease-in-out;
+}
+.favorite-item-entry:hover {
+     background-color: rgba(255, 255, 255, 0.08); /* Lighten on hover */
+}
+
+.favorite-item-image {
+    width: 90px; /* Larger image */
+    height: 90px;
+    object-fit: cover;
+    border-radius: 6px; /* Rounded image */
+    flex-shrink: 0;
+    border: 1px solid var(--text-medium); /* Subtle border */
+}
+
+.favorite-item-details {
+    flex-grow: 1;
+}
+.favorite-item-details h4 {
+    font-size: 1.3rem; /* Larger title */
+    font-family: var(--font-primary);
+    color: var(--light-teal);
+    margin-bottom: 0.4rem;
+}
+.favorite-item-details p { /* Fandom text */
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    margin-bottom: 0.3rem;
+    font-family: var(--font-secondary);
+    font-style: italic;
+}
+.favorite-item-details .location-meta { /* Country, Continent */
+    font-size: 0.85rem;
+    color: var(--grey-dark);
+    font-weight: 500;
+    margin-top: 0.5rem;
+    font-family: var(--font-secondary);
+}
+
+/* Reuse .btn-fav but style specifically for remove action if needed */
+.favorite-item-actions .btn-fav {
+    margin-left: auto; /* Push to the right */
+    padding: 0.6rem 1rem; /* Smaller button */
+    font-size: 0.85rem;
+    background-color: var(--primary-red); /* Use red for remove */
+}
+.favorite-item-actions .btn-fav:hover {
+    background-color: var(--accent-red); /* Darker red on hover */
+}
+.favorite-item-actions .btn-fav i {
+    margin-right: 5px; /* Space between icon and text */
+    font-size: 0.9em; /* Adjust icon size if needed */
+}
+
+
+#favorite-locations-list .loading-message,
+#favorite-locations-list .no-results {
+    /* Shared styles with general loading message */
+     border: 1px solid var(--grey-dark); /* Solid border maybe? */
+     font-size: 1.2rem;
+     margin-top: 2rem;
+}
