@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tours - StoryScapes</title>
+
+    <!-- External CSS Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo-link">
+                <img src="Logo1.png" alt="StoryScapes Logo" class="logo-img" />
+            </a>
+            <nav>
+                <ul>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">Fandom <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="hp-page.html">Harry Potter</a></li>
+                            <li><a href="hdm-page.html">His Dark Materials</a></li>
+                            <li><a href="wot-page.html">The Wheel of Time</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="all-storycapes.html" class="nav-link">All StoryScapes</a></li>
+                    <li><a href="tours-page.html" class="nav-link active-page">Tours</a></li> <!-- Active Page Link -->
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <a href="favorites-page.html" aria-label="Favorites" id="favorites-icon"><i class="fas fa-heart"></i></a>
+                <a href="cart-page.html" aria-label="Shopping Cart" id="cart-icon"><i class="fas fa-shopping-cart"></i> <span class="cart-count is-empty">(0)</span></a>
+                <div class="profile-menu">
+                    <a href="#" aria-label="User Profile" id="user-profile-icon"><i class="fas fa-user"></i></a>
+                    <div class="profile-dropdown-menu" id="profile-dropdown"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="tours-page-content container">
+            <h2 class="page-title">Our Curated StoryScapes Tours</h2>
+            <p class="page-intro">
+                Embark on unforgettable journeys into the heart of your favorite stories. Our expertly guided tours take you to the very locations that inspired authors and filmmakers, offering a unique blend of real-world exploration and fictional wonder.
+            </p>
+
+            <div class="tours-grid">
+                <!-- Tour Card 1: Harry Potter's Oxford -->
+                <div class="tour-card">
+                    <img src="12HPtour.jpg" alt="Harry Potter Oxford Tour">
+                    <div class="tour-card-content">
+                        <h3>Harry Potter's Oxford Adventure</h3>
+                        <p class="tour-fandom">Fandom: Harry Potter</p>
+                        <p class="tour-description">
+                            Walk the hallowed halls of Oxford University, discovering filming locations for Hogwarts' interiors, libraries, and the iconic Bodleian Library. Feel the magic in this historic city.
+                        </p>
+                        <ul class="tour-highlights">
+                            <li><i class="fas fa-check"></i> Visit Hogwarts' Great Hall inspiration.</li>
+                            <li><i class="fas fa-check"></i> Explore famous filming corridors.</li>
+                            <li><i class="fas fa-check"></i> See the real "Restricted Section."</li>
+                        </ul>
+						<p class="tour-price">£15.00</p> <!-- Corrected currency display -->
+                        <button class="btn btn-add-to-cart"
+                                data-tour-id="hp-oxford-15"
+                                data-tour-name="Harry Potter's Oxford Adventure"
+                                data-tour-price="15.00"
+                                data-tour-image="12HPtour.jpg">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tour Card 2: His Dark Materials Oxford -->
+                <div class="tour-card">
+                    <img src="11LyrasOX.png" alt="His Dark Materials Oxford Tour">
+                    <div class="tour-card-content">
+                        <h3>Lyra's Oxford: A His Dark Materials Tour</h3>
+                        <p class="tour-fandom">Fandom: His Dark Materials</p>
+                        <p class="tour-description">
+                            Explore the real-life inspirations for Jordan College and Lyra's Oxford, venturing through the same cobbled streets, academic cloisters, and hidden passages featured in the books and series.
+                        </p>
+                        <ul class="tour-highlights">
+                            <li><i class="fas fa-check"></i> Discover Jordan College's inspirations.</li>
+                            <li><i class="fas fa-check"></i> Walk the Covered Market paths.</li>
+                            <li><i class="fas fa-check"></i> Uncover hidden inter-world "windows."</li>
+                        </ul>
+						<p class="tour-price">£15.00</p>
+                        <button class="btn btn-add-to-cart"
+                                data-tour-id="hdm-oxford-15"
+                                data-tour-name="Lyra's Oxford: A His Dark Materials Tour"
+                                data-tour-price="15.00"
+                                data-tour-image="11LyrasOX.png">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tour Card 3: Warner Bros. Studio Tour -->
+                <div class="tour-card">
+                    <img src="10WBSL.png" alt="Warner Bros Studio Tour">
+                    <div class="tour-card-content">
+                        <h3>Warner Bros. Studio Tour London</h3>
+                        <p class="tour-fandom">Fandom: Harry Potter</p>
+                        <p class="tour-description">
+                            Step onto authentic sets, discover the magic behind breathtaking special effects, and explore the secrets of the Harry Potter film series at the official Warner Bros. Studio Tour.
+                        </p>
+                        <ul class="tour-highlights">
+                            <li><i class="fas fa-check"></i> Walk through the Great Hall.</li>
+                            <li><i class="fas fa-check"></i> Explore Diagon Alley.</li>
+                            <li><i class="fas fa-check"></i> See iconic props and costumes.</li>
+                        </ul>
+						<p class="tour-price">£60.00</p>
+                        <button class="btn btn-add-to-cart"
+                                data-tour-id="wb-studio-london-60"
+                                data-tour-name="Warner Bros. Studio Tour London"
+                                data-tour-price="60.00"
+                                data-tour-image="10WBSL.png">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tour Card 4: Wheel of Time Prague Studio Insights -->
+                <div class="tour-card">
+                    <img src="13JSP.png" alt="Jordan Studios Prague Tour">
+                    <div class="tour-card-content">
+                        <h3>Jordan Studios Insights (Prague)</h3>
+                        <p class="tour-fandom">Fandom: The Wheel of Time</p>
+                        <p class="tour-description">
+                            Gain insights into the primary production hub for The Wheel of Time television series. This experience offers a look into the scale and detail of this custom-built studio complex. (External viewings/info tour).
+                        </p>
+                         <ul class="tour-highlights">
+                            <li><i class="fas fa-check"></i> Overview of the production facilities area.</li>
+                            <li><i class="fas fa-check"></i> Learn about the series' set construction scale.</li>
+                            <li><i class="fas fa-check"></i> Immerse yourself in WoT's visual world creation concepts.</li>
+                        </ul>
+						<p class="tour-price">£50.00</p>
+                        <button class="btn btn-add-to-cart"
+                                data-tour-id="wot-prague-studio-50"
+                                data-tour-name="Jordan Studios Insights (Prague)"
+                                data-tour-price="50.00"
+                                data-tour-image="13JSP.png">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Have questions or need help planning your adventure?</p>
+                <form id="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="3" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+            <div class="footer-info">
+                <h4>StoryScapes</h4>
+                <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+                <p><i class="fas fa-envelope"></i> info@storyscapes.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Fantasy Lane, Storyville</p>
+                <div class="social-media">
+                    <a href="#" aria-label="Facebook"><span><i class="fab fa-facebook-f"></i></span></a>
+                    <a href="#" aria-label="Instagram"><span><i class="fab fa-instagram"></i></span></a>
+                    <a href="#" aria-label="Twitter"><span><i class="fab fa-twitter"></i></span></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 StoryScapes. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Login/Register Modals -->
+     <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeLoginModal">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" required>
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" required>
+                <button type="submit" class="btn">Login</button>
+                <p>Don't have an account? <a href="#" id="showRegisterModalLink">Register here</a></p>
+            </form>
+        </div>
+     </div>
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeRegisterModal">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label for="regName">Full Name:</label>
+                <input type="text" id="regName" required>
+                <label for="regEmail">Email:</label>
+                <input type="email" id="regEmail" required>
+                <label for="regPassword">Password:</label>
+                <input type="password" id="regPassword" required>
+                <label for="regDob">Date of Birth:</label>
+                <input type="date" id="regDob" required>
+                <label for="regGender">Gender:</label>
+                <select id="regGender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                    <option value="prefer_not_to_say">Prefer not to say</option>
+                </select>
+                <button type="submit" class="btn">Register</button>
+                 <p>Already have an account? <a href="#" id="showLoginModalLink">Login here</a></p>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- External JS Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Your Custom JS: -->
+    <script src="script.js"></script>
+
+</body>
+</html>

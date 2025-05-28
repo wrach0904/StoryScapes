@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Favorite Locations - StoryScapes</title>
+
+    <!-- External CSS Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> <!-- For header consistency -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <!-- Your Standard Header HTML -->
+        <div class="container header-container">
+            <a href="index.html" class="logo-link"> <img src="Logo1.png" alt="Logo" class="logo-img"/> </a>
+            <nav>
+                <ul>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">Fandom <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="hp-page.html">Harry Potter</a></li>
+                            <li><a href="hdm-page.html">His Dark Materials</a></li>
+                            <li><a href="wot-page.html">The Wheel of Time</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="all-storycapes.html" class="nav-link">All StoryScapes</a></li>
+                    <li><a href="tours-page.html" class="nav-link">Tours</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <!-- Add 'active-page' class -->
+                <a href="favorites-page.html" aria-label="Favorites" id="favorites-icon" class="active-page"><i class="fas fa-heart"></i></a>
+                <a href="cart-page.html" aria-label="Shopping Cart" id="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count is-empty">(0)</span></a>
+                <div class="profile-menu">
+                    <a href="#" aria-label="User Profile" id="user-profile-icon"><i class="fas fa-user"></i></a>
+                    <div class="profile-dropdown-menu" id="profile-dropdown"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="favorites-page-content container">
+            <h2 class="page-title">Your Favorite StoryScapes</h2>
+            <p class="page-intro">
+                Revisit the magical places that captured your heart. Below are all the locations you've marked as favorites, with a map pinpointing their real-world or inspired spots.
+            </p>
+
+            <!-- Main Map Container for All Favorites -->
+            <div class="favorites-map-container">
+                <div id="all-favorites-map"></div>
+            </div>
+
+            <!-- List of Favorite Locations -->
+            <div class="favorite-locations-list-section">
+                <h3>Your Liked Locations List:</h3>
+                <div id="favorite-locations-list">
+                    <!-- Favorite location entries will be injected here by script.js -->
+                    <p class="loading-message">Loading your favorites...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Your Standard Footer -->
+         <div class="container footer-container">
+             <div class="footer-contact">
+                 <h4>Contact Us</h4>
+                 <p>Have questions or need help planning your adventure?</p>
+                 <form id="contact-form">
+                     <input type="text" placeholder="Your Name" required>
+                     <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="3" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                 </form>
+            </div>
+            <div class="footer-info">
+                <h4>StoryScapes</h4>
+                 <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+                <p><i class="fas fa-envelope"></i> info@storyscapes.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Fantasy Lane, Storyville</p>
+                <div class="social-media">
+                     <a href="#" aria-label="Facebook"><span><i class="fab fa-facebook-f"></i></span></a>
+                    <a href="#" aria-label="Instagram"><span><i class="fab fa-instagram"></i></span></a>
+                     <a href="#" aria-label="Twitter"><span><i class="fab fa-twitter"></i></span></a>
+                </div>
+             </div>
+         </div>
+         <div class="copyright">
+            <p>&copy; 2024 StoryScapes. All rights reserved.</p>
+         </div>
+    </footer>
+
+    <!-- Login/Register Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeLoginModal">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" required>
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" required>
+                <button type="submit" class="btn">Login</button>
+                <p>Don't have an account? <a href="#" id="showRegisterModalLink">Register here</a></p>
+            </form>
+        </div>
+     </div>
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeRegisterModal">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label for="regName">Full Name:</label>
+                <input type="text" id="regName" required>
+                <label for="regEmail">Email:</label>
+                <input type="email" id="regEmail" required>
+                <label for="regPassword">Password:</label>
+                <input type="password" id="regPassword" required>
+                <label for="regDob">Date of Birth:</label>
+                <input type="date" id="regDob" required>
+                <label for="regGender">Gender:</label>
+                <select id="regGender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                    <option value="prefer_not_to_say">Prefer not to say</option>
+                </select>
+                <button type="submit" class="btn">Register</button>
+                <p>Already have an account? <a href="#" id="showLoginModalLink">Login here</a></p>
+            </form>
+        </div>
+     </div>
+
+    <!-- JS Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Your Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
