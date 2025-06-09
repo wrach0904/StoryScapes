@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Cart - StoryScapes</title>
 
-    <!-- External CSS Libraries -->
+    <!-- CSS Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-    <!-- Your Custom CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header>
-        <!-- Your Standard Header HTML (ensure cart icon link points to cart-page.html) -->
          <div class="container header-container">
              <a href="index.html" class="logo-link">
                  <img src="Logo1.png" alt="StoryScapes Logo" class="logo-img" />
@@ -36,7 +35,6 @@
             </nav>
             <div class="nav-icons">
                 <a href="favorites-page.html" aria-label="Favorites" id="favorites-icon"><i class="fas fa-heart"></i></a>
-                <!-- Link to cart page, make active -->
                 <a href="cart-page.html" aria-label="Shopping Cart" id="cart-icon" class="active-page"><i class="fas fa-shopping-cart"></i> <span class="cart-count is-empty">(0)</span></a>
                  <div class="profile-menu">
                     <a href="#" aria-label="User Profile" id="user-profile-icon"><i class="fas fa-user"></i></a>
@@ -51,26 +49,21 @@
             <h2 class="page-title">Your Shopping Cart</h2>
 
             <div class="cart-container">
-                <!-- Cart Items Section - Populated by JavaScript -->
                 <div class="cart-items">
                     <h3>Items in Your Cart</h3>
-                    <!-- JS will inject items here or an empty message -->
                     <div id="cart-items-list">
                          <p class="empty-cart-message loading-cart">Loading your cart...</p>
                     </div>
                 </div>
 
-                <!-- Order Summary Section - Populated by JavaScript -->
                 <div class="order-summary">
                     <h3>Order Summary</h3>
-                    <!-- JS will inject summary details here -->
                     <div id="order-summary-details">
                          <p>Calculating totals...</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Checkout Form Section (Stays as static HTML) -->
             <section class="checkout-form-section">
                 <h3>Checkout Details</h3>
                 <form id="order-form">
@@ -145,7 +138,6 @@
     </main>
 
     <footer>
-        <!-- Your Standard Footer -->
          <div class="container footer-container">
             <div class="footer-contact">
                  <h4>Contact Us</h4>
@@ -172,7 +164,7 @@
         <div class="copyright"> <p>&copy; 2024 StoryScapes. All rights reserved.</p> </div>
     </footer>
 
-    <!-- Login/Register Modals -->
+    <!-- Login/Register -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeLoginModal">&times;</span>
@@ -217,7 +209,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-    <!-- Your Custom JS -->
+    <!-- JS -->
     <script src="script.js"></script>
 </body>
 </html>
