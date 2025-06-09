@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM Content Loaded. StoryScapes v3.14 (Index Static Map Robustness)");
 
     // =============================================
-    // == 1. Central Location Data Source (UNCHANGED from v3.13) ==
+    // ==Location Data Source ==
     // =============================================
     const allLocationsData = [
-        // --- Wheel of Time ---
+    // --- Wheel of Time ---
         	{ id: 'wot-1', fandom: 'The Wheel of Time', continent: 'Europe', country: 'Czech Republic', title: 'Jordan Studios', description: `<p>While not publicly accessible, the massive Jordan Studios complex near Prague is the central hub for The Wheel of Time's production. Numerous interior sets (White Tower, Falme, etc.), workshops, and soundstages bring the series' diverse locations to life.</p>`, images: ['13JSP.png', '13JSP1.png', '13JSP2.png'], map: { lat: 50.1305, lng: 14.5187, popup: 'Jordan Studios', zoom: 10 } },
 		
 		{ id: 'wot-2', fandom: 'The Wheel of Time', continent: 'Europe', country: 'Slovenia', title: 'Great Soča Gorge', description: `<p>The stunningly vibrant, turquoise waters and sheer cliffs of the Great Soča Gorge in Slovenia's Triglav National Park served as a key location in Season 1. This dramatic setting hosted the poignant scene where Egwene and Nynaeve undergo the Women's Circle ritual by plunging into the water.</p><p>The raw natural beauty perfectly captured the wild, elemental spirit of the Two Rivers and the intensity of the ritual.</p>`, images: ['6Great Soca Gorge.png', '6Great Soca Gorge2.jpg', '6Great Soca Gorge3.jpg', '6Great Soca Gorge4.png'], map: { lat: 46.34088, lng: 13.65115, popup: 'Great Soča Gorge (WoT Ritual Site)', zoom: 12 } },
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		{ id: 'wot-8', fandom: 'The Wheel of Time', continent: 'Europe', country: 'Italy', title: 'Masseria Lo Spagnulo', description: `<p>Located near Ostuni in Puglia, Italy, this historic fortified farmhouse became the residence of the Brown Ajah sisters Verin and Adeleas in Season 2. Moiraine and Lan also sought refuge here.</p><p>Its rustic charm and fortified appearance lent authenticity to the setting. Interestingly, this location functions as a hotel.</p>`, images: ['7Masseria Lo Spagnulo.png', '7Masseria Lo Spagnulo1.jpg', '7Masseria Lo Spagnulo2.png'], map: { lat: 40.77054, lng: 17.53127, popup: 'Masseria Lo Spagnulo (WoT S2 Location)', zoom: 14 } },
 		
 
-        // --- His Dark Materials ---
+    // --- His Dark Materials ---
         	{ id: 'hdm-1', fandom: 'His Dark Materials', continent: 'Europe', country: 'England', title: 'New College, Oxford', description: `<p>One of Oxford's oldest and most visually stunning colleges, New College served as a primary filming location and inspiration for the prestigious Jordan College in both the books and the TV series.</p><p>Wander its atmospheric cloisters and imagine Lyra and Pan exploring its secrets. The historic architecture perfectly captures the academic yet mysterious feel of Lyra's early home.</p>`, images: ['4New-College.jpg', '4New-College1.jpg', '4New-College3.jpg', '4New-College4.jpg', '4New-College2.jpg'], map: { lat: 51.75496, lng: -1.25060, popup: 'New College (HDM Jordan College)', zoom: 15 } },
        		{ id: 'hdm-2', fandom: 'His Dark Materials', continent: 'Europe', country: 'Wales', title: 'Saint Govan\'s Chapel', description: `<p>This tiny, ancient chapel built into the dramatic cliffs of Pembrokeshire, Wales, served as the striking filming location for Mrs. Coulter's remote hideout in the series.</p><p>Its isolated and almost mythical setting perfectly matched the enigmatic character's need for secrecy. Access involves descending steep stone steps.</p>`, images: ['5Govan-chapel.jpg', '5Govan-chapel2.jpg', '5Govan-chapel3.jpg', '5Govan-chapel4.jpg'], map: { lat: 51.59882, lng: -4.93677, popup: "St Govan's Chapel (HDM Mrs Coulter's Hideout)", zoom: 14 } },
        		{ id: 'hdm-3', fandom: 'His Dark Materials', continent: 'Europe', country: 'England', title: 'Oxford Botanic Garden', description: `Oxford Botanic Garden, it is here that Lyra and Will—separated forever by the boundaries of their parallel worlds—promise to return each year on Midsummer’s Day, sitting at the same time in their own realities, bound by memory and love. </p><p>Behind the bench stands a striking sculpture: a bronze pine tree entwined with daemons—a cat and a pine marten—representing Will’s and Lyra’s souls, forever watching over the place they chose to meet.</p>`, images: ['botanic_garden1.jpg', 'botanic_garden2.jpg', 'botanic_garden3.jpg', 'botanic_garden4.jpg',], map: { lat: 51.751094511991205, lng: -1.2471893472907027, popup: 'Oxford Botanic Garden', zoom: 18 }},
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		{ id: 'hdm-5', fandom: 'His Dark Materials', continent: 'Europe', country: 'Wales', title: 'Brecon Beacons National Park', description: `Brecon Beacons National Park (Bannau Brycheiniog) provided some of the most breathtaking landscapes in His Dark Materials, standing in for the remote and mystical regions of Lyra’s world. In Season 1, the park's rugged terrain and dramatic vistas were used to depict the vast expanses of the North. In Season 3, the Black Mountain range and the serene lake Llyn y Fan Fach served as the backdrop for Lord Asriel’s base, representing the Republic of Heaven. `, images: ['BBNP1.jpg', 'BBNP2.jpg', 'BBNP3.jpg'], map: { lat: 51.86326282683234, lng: -3.426831999399114, popup: 'Brecon Beacons National Park', zoom: 8 } },
 		{ id: 'hdm-6', fandom: 'His Dark Materials', continent: 'Europe', country: 'Italy', title: 'Korčula, Croatia', description: `The cobbled streets of the spectral city of Cittàgazze were meticulously constructed at Bad Wolf Studios. But would you like to visit a town like this in the real world? </p><p> Many fans believe that the Mediterranean charm of Cittàgazze draws inspiration from the stunning Croatian walled town of Korčula, nestled on the island sharing its name. It perfectly echoes the haunting beauty and timeless feel that define Cittàgazze.`, images: ['KC1.jpg', 'KC2.jpg', 'KC3.jpg'], map: { lat: 42.95238267050892, lng: 17.12968536534325, popup: 'Korčula, Croatia', zoom: 11 } },
 
-        // --- Harry Potter ---
+    // --- Harry Potter ---
         	{ id: 'hp-1', fandom: 'Harry Potter', continent: 'Europe', country: 'England', title: 'Alnwick Castle', description: `<p>Located in Northumberland, England, Alnwick Castle was famously used as a stand-in for Hogwarts in the first two Harry Potter films.</p><p>Its Outer Bailey is instantly recognizable as the location for Madam Hooch’s flying lesson scene and where Harry first learned to fly a broomstick.</p>`, images: ['8alnwick-castle.jpg', 'assets/images/hp_alnwick_2.jpg', 'assets/images/hp_alnwick_3.jpg'], map: { lat: 55.41571, lng: -1.70523, popup: 'Alnwick Castle (HP Flying Lessons)', zoom: 15 } },
         
 		{ id: 'hp-2', fandom: 'Harry Potter', continent: 'Europe', country: 'Scotland', title: 'Glenfinnan Viaduct & Loch Shiel', description: `<p>Nestled in the Scottish Highlands, the Glenfinnan Viaduct provides one of the most iconic shots of the Harry Potter series as the Hogwarts Express crosses it.</p><p>The nearby Loch Shiel served as the stunning backdrop for the Black Lake surrounding Hogwarts.</p>`, images: ['9Glenfinnan-Viaduct.png', 'assets/images/hp_loch_shiel.jpg', 'assets/images/hp_glenfinnan_train.jpg'], map: { lat: 56.8761, lng: -5.4312, popup: "Glenfinnan Viaduct & Loch Shiel (HP Hogwarts Express & Black Lake)", zoom: 13 } },
@@ -63,9 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateAllFavoriteButtonStyles(){const f=getFavorites();safeQuerySelectorAll('.btn-fav').forEach(b=>{const ct=b.closest('[data-location-id]');if(!ct?.dataset?.locationId)return;const id=ct.dataset.locationId,ic=safeQuerySelector('i',b);let tn=Array.from(b.childNodes).find(n=>n.nodeType===3&&n.textContent.trim());if(!tn){tn=document.createTextNode('');b.appendChild(tn);}if(ic&&tn){if(f.includes(id)){ic.classList.replace('far','fas');tn.textContent=b.classList.contains('btn-remove-fav')?' Remove':' Favorited';b.title="Remove";}else{ic.classList.replace('fas','far');tn.textContent=' Add to Favs';b.title="Add";}}});}
 
     // ===================================================================
-    // == 3. HTML Generation & Feature Initialization ==
+    // == HTML Generation  ==
     // ===================================================================
-     function generateLocationHTML(loc) { /* As per v3.12 */
+     function generateLocationHTML(loc) { 
         const i=loc.images && loc.images.length > 0 ? loc.images.map(s=>`<div class="swiper-slide"><img loading="lazy" src="${s}" alt="${loc.title || 'Location'} Image"></div>`).join('') : `<div class="swiper-slide"><img src="assets/images/placeholder_general.jpg" alt="Placeholder"></div>`;
         const dB=loc.disabledInfo?`<button class="btn btn-details" disabled>Studio</button>`:`<a href="#" class="btn btn-details" data-location-id="${loc.id}">Info</a>`;
         const favBtn = `<button class="btn btn-fav"><i class="far fa-heart"></i> Add to Favorites</button>`;
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return`<article class="location-entry" data-location-id="${loc.id}" data-continent="${loc.continent||'Unk'}" data-country="${loc.country||'Unk'}" data-fandom="${loc.fandom||'Unk'}"><div class="location-entry-swiper"><div class="swiper location-swiper"><div class="swiper-wrapper">${i}</div><div class="swiper-pagination"></div><div class="swiper-button-next"></div><div class="swiper-button-prev"></div></div></div><div class="location-entry-details"><h3>${loc.title||'Unk'}</h3><p class="location-fandom">Fandom: ${loc.fandom||'Unk'}</p><div class="location-description">${loc.description||'<p>No description.</p>'}</div><div class="location-actions">${favBtn}${dB}</div></div><div class="location-entry-map">${mapHTML}</div></article>`;
      }
 
-     function initializePageFeatures(cSel){ /* As per v3.12 (your simpler init for dynamic content) */
+     function initializePageFeatures(cSel){ 
         const c=safeQuerySelector(cSel);if(!c)return;
         c.querySelectorAll('.location-swiper').forEach(sE=>{
             if(sE.swiper || sE.classList.contains('swiper-initialized-loc-dynamic')) return;
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderFavoriteLocationsPage(){ /* As per v3.12 */ const fl=safeQuerySelector('#favorite-locations-list'),me=safeQuerySelector('#all-favorites-map');if(!fl||!me)return;fl.innerHTML='<p class="loading-message">Loading favs...</p>';setTimeout(()=>{const fIDs=getFavorites(),fLocs=allLocationsData.filter(l=>fIDs.includes(l.id)&&!l.originalMapId);if(fLocs.length>0){fl.innerHTML=fLocs.map(generateFavoriteItemHTML).join('');initializePageFeatures('#favorite-locations-list');}else fl.innerHTML='<p class="no-results">No favorites yet.</p>';try{if(!allFavoritesMapInstance&&!me._leaflet_id){allFavoritesMapInstance=L.map(me.id,{scrollWheelZoom:true,dragging:true,zoomControl:true}).setView([20,0],2);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OSM',maxZoom:18}).addTo(allFavoritesMapInstance);me._leaflet_id='init';}else if(allFavoritesMapInstance){allFavoritesMapInstance.eachLayer(l=>{if(l instanceof L.Marker)allFavoritesMapInstance.removeLayer(l);});}if(allFavoritesMapInstance&&fLocs.length>0){const mks=fLocs.map(l=>l.map?.lat?L.marker([l.map.lat,l.map.lng]).bindPopup(`<b>${l.title}</b><br>${l.fandom}`):null).filter(Boolean);if(mks.length>0){mks.forEach(m=>m.addTo(allFavoritesMapInstance));allFavoritesMapInstance.fitBounds(new L.featureGroup(mks).getBounds().pad(0.2));}else allFavoritesMapInstance.setView([20,0],2);}else if(allFavoritesMapInstance)allFavoritesMapInstance.setView([20,0],2);}catch(e){if(me)me.innerHTML='<p style="color:red;padding:10px;">Map Error.</p>';}},0);}
 
     // ==================================================
-    // == 6. Global Event Listeners Setup ==
+    // ==Listeners Setup ==
     // ==================================================
     function setupGlobalListeners() { /* As per v3.12, ensure static fav setup is robust */
         safeQuerySelectorAll('nav .dropdown > a').forEach(l=>{if(l.dataset.nl)return;l.addEventListener('click',function(e){if(window.innerWidth<992){e.preventDefault();const p=this.parentElement,o=p.classList.toggle('open'),s=p.querySelector('.dropdown-menu');if(s)s.style.display=o?'block':'none';safeQuerySelectorAll('nav .dropdown.open').forEach(od=>{if(od!==p){od.classList.remove('open');const os=od.querySelector('.dropdown-menu');if(os)os.style.display='none';}});}});l.dataset.nl='true';});document.addEventListener('click',(e)=>{if(window.innerWidth<992&&!e.target.closest('header nav')){safeQuerySelectorAll('nav .dropdown.open').forEach(d=>{d.classList.remove('open');const s=d.querySelector('.dropdown-menu');if(s)s.style.display='none';});}},true);
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =============================================
-    // == 7. Page-Specific Initializations & Renders ==
+    // ==Page-Specific Initializations==
     // =============================================
     function initializeIndexPageFeatures() {
         // --- Hero Swiper ---
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =============================================
-    // == 8. Script Execution Start ==
+    // ==Script Execution==
     // =============================================
     try { setupGlobalListeners(); runPageSpecificCode(); } catch (e) { console.error("CRITICAL SCRIPT ERROR (v3.14):", e); const b=safeQuerySelector('body');if(b){const d=document.createElement('div');d.style.cssText="position:fixed;bottom:0;left:0;right:0;background:maroon;color:white;padding:15px;z-index:10000;text-align:center;font-size:1.1em;";d.innerHTML=`<b>Site Error:</b> ${e.message}. See console. Refresh.`;b.appendChild(d);setTimeout(()=>d.remove(),12000);} }
 });
