@@ -14,7 +14,7 @@
     --grey-dark: #4f4c43;
     --white: #ffffff;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    --card-bg: rgba(255, 255, 255, 0.05); /* Frosted glass effect for cards on dark bg */
+    --card-bg: rgba(255, 255, 255, 0.05); /*glass effect*/
     --font: 'Candara', sans-serif;
 }
 
@@ -25,10 +25,10 @@
 }
 
 body {
-    font-family: var(--font-secondary); /* Use secondary font for base */
+    font-family: var(--font-secondary);
     line-height: 1.6;
     color: var(--text-light);
-    background: linear-gradient(180deg, var(--dark-teal) 0%, var(--primary-dark) 30%, var(--primary-dark) 70%, #2a0101 100%); /* Teal to Dark Blue/Black to Dark Red gradient */
+    background: linear-gradient(180deg, var(--dark-teal) 0%, var(--primary-dark) 30%, var(--primary-dark) 70%, #2a0101 100%); 
     overflow-x: hidden;
 }
 
@@ -38,7 +38,8 @@ body {
     margin: 0 auto;
 }
 
-/* Header */
+		/* Header */
+
 header {
     background: var(--primary-dark);
     color: var(--white);
@@ -63,14 +64,13 @@ header {
 }
 
 .logo-img {
-    height: 130px; /* Adjusted size */
-    width: auto; /* Maintain aspect ratio */
+    height: 130px; 
+    width: auto; 
     margin-right: 10px;
-    /* Make logo slightly brighter if needed on dark bg */
     filter: brightness(1.1);
 }
 
-header h1 { /* If you add text next to logo */
+header h1 { 
     font-family: var(--font-primary);
     font-size: 1.8rem;
     font-weight: 700;
@@ -83,37 +83,40 @@ nav ul {
 
 nav ul li {
     margin-left: 20px;
-    position: relative; /* For dropdown */
+    position: relative; 
 }
 
 .nav-link {
-    font-family: var(--font-secondary); /* Use secondary font for nav */
+    font-family: var(--font-secondary); 
     color: var(--white);
     text-decoration: none;
     padding: 0.5rem;
     transition: color 0.3s ease;
     font-weight: 500;
-	font-size: 1.1rem; /* Adjusted size */
-	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    font-size: 1.1rem; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .nav-link:hover, .nav-link i:hover {
     color: var(--accent-red);
 }
-/* Style for the active page link */
+
+
+		/* Active page link */
 .nav-link.active-page,
-.dropdown-menu a.active-page { /* Also style active in dropdown */
+.dropdown-menu a.active-page { 
     color: var(--accent-red);
-    font-weight: 700; /* Make it bolder */
+    font-weight: 700; 
 }
 
 
 .nav-link i {
-    font-size: 0.9em; /* Slightly smaller arrow */
+    font-size: 0.9em; 
     margin-left: 5px;
 }
 
-/* Dropdown Menu */
+		/* Dropdown Menu */
+
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -124,7 +127,7 @@ nav ul li {
     box-shadow: var(--shadow);
     padding: 0.5rem 0;
     min-width: 180px;
-    z-index: 1001; /* Above other nav items */
+    z-index: 1001; 
 }
 
 .dropdown-menu li {
@@ -162,39 +165,40 @@ nav ul li {
     font-size: 1.2rem;
     margin-left: 20px;
     transition: color 0.3s ease;
-	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    position: relative; /* For cart count positioning */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    position: relative; 
 }
 
 .nav-icons a:hover {
     color: var(--accent-red);
 }
 
-/* Active nav icon (like heart on favorites page) */
+/* Active nav icon*/
 .nav-icons a.active-page i {
-     color: var(--accent-red); /* Highlight active icon */
+     color: var(--accent-red); 
 }
 
 
-/* --- CART COUNT STYLES --- */
+		/*CART*/
+
 .cart-count {
     background-color: var(--accent-red);
     color: var(--white);
     border-radius: 50%;
-    padding: 0.15em 0.5em; /* Slightly adjust padding */
+    padding: 0.15em 0.5em; 
     font-size: 0.75rem;
     font-weight: bold;
-    position: absolute; /* Position relative to the parent anchor */
-    top: -8px;         /* Adjust vertical position */
-    right: -12px;       /* Adjust horizontal position */
+    position: absolute; 
+    top: -8px;        
+    right: -12px; 
     line-height: 1;
-    text-decoration: none !important; /* Override potential link styles */
-    border: none !important;          /* Override potential border styles */
-    display: inline-block; /* Ensure it displays */
+    text-decoration: none !important; 
+    border: none !important;         
+    display: inline-block; 
 }
 
 .cart-count.is-empty {
-    display: none; /* Hide the span when this class is present */
+    display: none; 
 }
 
 .profile-menu {
@@ -204,7 +208,7 @@ nav ul li {
 .profile-dropdown-menu {
     display: none;
     position: absolute;
-    top: calc(100% + 10px); /* Position below icon */
+    top: calc(100% + 10px); 
     right: 0;
     background-color: var(--dark-teal);
     border-radius: 5px;
@@ -238,13 +242,14 @@ nav ul li {
 	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-/* Hero Slider (Swiper) */
+		/*Swiper*/
+
 .hero-slider {
-    height: 70vh; /* Maybe slightly taller */
+    height: 70vh; 
     min-height: 450px;
     width: 100%;
     margin-bottom: 2rem;
-	position: relative;
+    position: relative;
 }
 
 .swiper {
@@ -256,17 +261,17 @@ nav ul li {
 }
 
 .swiper-slide {
-	height: 100%;
-	text-align: center;
+    height: 100%;
+    text-align: center;
     font-size: 18px;
     background-size: cover;
     background-position: center;
-	background-repeat: no-repeat;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--white);
-    position: relative; /* For pseudo-element overlay */
+    position: relative;
 }
 
 .swiper-slide::before {
@@ -276,29 +281,29 @@ nav ul li {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.65); /* Slightly darker overlay */
+    background: rgba(0, 0, 0, 0.65); 
     z-index: 1;
 }
 
 .slide-content {
     position: relative;
     z-index: 2;
-    max-width: 900px; /* Slightly narrower */
+    max-width: 900px; 
 	padding: 2rem;
 }
 
 .swiper-slide .title {
-    font-size: 3.5rem; /* Larger title */
+    font-size: 3.5rem; 
     font-weight: 700;
-    font-family: var(--font-primary); /* Use primary font */
+    font-family: var(--font-primary); 
     margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.8); /* Stronger shadow */
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8); 
 }
 
 .swiper-slide .subtitle {
-    font-size: 1.6rem; /* Larger subtitle */
+    font-size: 1.6rem; 
     font-weight: 400;
-    font-family: var(--font-primary); /* Use primary font */
+    font-family: var(--font-primary); 
     font-style: italic;
     margin-bottom: 1.5rem;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
@@ -306,7 +311,7 @@ nav ul li {
 
 .swiper-slide .text p {
     font-size: 1.1rem;
-    max-width: 750px; /* Control paragraph width */
+    max-width: 750px; 
     margin: 0 auto;
     font-family: var(--font-secondary);
     line-height: 1.7;
@@ -314,10 +319,10 @@ nav ul li {
 }
 .swiper-pagination-bullet-active {
     background-color: var(--light-teal) !important;
-    transform: scale(1.2); /* Make active bullet larger */
+    transform: scale(1.2); 
 }
 .swiper-button-next, .swiper-button-prev {
-    color: var(--white) !important; /* Ensure visibility */
+    color: var(--white) !important; 
     background-color: rgba(0,0,0, 0.3);
     border-radius: 50%;
     width: 40px;
@@ -334,180 +339,182 @@ nav ul li {
     font-weight: bold;
 }
 
-/* Featured Locations */
+			/* Locations */
 .featured-locations {
-    padding: 3rem 0; /* More padding */
+    padding: 3rem 0;
     text-align: center;
 }
 
 .featured-locations h2 {
     font-family: var(--font-primary);
-    font-size: 2.8rem; /* Larger heading */
+    font-size: 2.8rem; 
     color: var(--light-teal);
-    margin-bottom: 2.5rem; /* More space below */
+    margin-bottom: 2.5rem; 
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
 .locations-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Min card width 320px */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
     gap: 2rem; /* More gap */
 }
 
 .location-card {
-    background: var(--card-bg); /* Frosted glass */
-    border: 1px solid rgba(206, 204, 203, 0.2); /* Light border */
-    border-radius: 10px; /* More rounded */
+    background: var(--card-bg); 
+    border: 1px solid rgba(206, 204, 203, 0.2); 
+    border-radius: 10px; 
     padding: 1.5rem;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: var(--text-light);
-    backdrop-filter: blur(6px); /* Slightly stronger blur */
-    -webkit-backdrop-filter: blur(6px); /* Safari */
-    display: flex; /* Use flexbox */
-    flex-direction: column; /* Stack elements vertically */
-    height: 100%; /* Ensure cards in a row take same height if needed */
+    backdrop-filter: blur(6px); 
+    -webkit-backdrop-filter: blur(6px);
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
 }
 
 .location-card:hover {
-    transform: translateY(-8px); /* Lift more on hover */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25); /* Larger shadow on hover */
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25); 
 }
 
 .location-card img {
     width: 100%;
-    height: 220px; /* Increased image height */
+    height: 220px;
     object-fit: cover;
-    border-radius: 6px; /* Slightly rounded image corners */
+    border-radius: 6px; 
     margin-bottom: 1rem;
 }
 
 .location-card h3 {
     font-family: var(--font-primary);
-    font-size: 1.4rem; /* Adjusted size */
+    font-size: 1.4rem; 
     color: var(--light-teal);
     margin-bottom: 0.75rem;
-    line-height: 1.3; /* Prevent overly tall H3s */
+    line-height: 1.3; 
 }
 
 .location-card p {
     font-family: var(--font-secondary);
-    font-size: 0.95rem; /* Slightly larger text */
+    font-size: 0.95rem; 
     color: var(--text-medium);
-    margin-bottom: 1.5rem; /* More space below text */
-    flex-grow: 1; /* Allows text to take up space, pushing map/button down */
+    margin-bottom: 1.5rem; 
+    flex-grow: 1; 
 }
 
 .mini-map {
-    height: 180px; /* Larger map */
+    height: 180px; 
     width: 100%;
     border-radius: 5px;
     margin-bottom: 1rem;
-    background-color: var(--grey-dark); /* Placeholder bg */
-    border: 1px solid var(--text-medium); /* Subtle border */
+    background-color: var(--grey-dark); 
+    border: 1px solid var(--text-medium); 
 }
 
-/* Placeholder for map data unavailable (generated by JS if map data is bad) */
+		/* Map Placeholder*/
+
 .location-entry-map-placeholder,
-.map-error-msg { /* Can be a P tag with this class */
+.map-error-msg { 
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%; /* Fill the map container */
-    min-height: 150px; /* Minimum visual height */
+    height: 100%; 
+    min-height: 150px; 
     background-color: var(--grey-dark);
     color: var(--text-medium);
     font-style: italic;
     text-align: center;
     padding: 10px;
-    border-radius: 5px; /* Match map styling if any */
+    border-radius: 5px; 
     border: 1px dashed var(--text-medium);
 }
 
 
-/* Buttons */
+		/* Buttons */
+
 .btn {
     display: inline-block;
     background: var(--accent-red);
     color: var(--white);
-    padding: 0.8rem 1.8rem; /* More padding */
+    padding: 0.8rem 1.8rem; 
     border: none;
-    border-radius: 25px; /* Rounded pill shape */
+    border-radius: 25px; 
     cursor: pointer;
     text-decoration: none;
     font-weight: 500;
-    font-family: var(--font-secondary); /* Use secondary font for buttons */
+    font-family: var(--font-secondary);
     transition: background-color 0.3s ease, transform 0.2s ease;
-    text-transform: uppercase; /* Uppercase text */
+    text-transform: uppercase; 
     letter-spacing: 0.5px;
     font-size: 0.9rem;
-    text-align: center; /* Ensure text is centered */
+    text-align: center; 
 }
 
 .btn:hover {
     background-color: var(--primary-red);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add shadow on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
 }
 
 .btn-fav {
     background: var(--primary-teal);
-    margin-top: auto; /* Push button to bottom of card flex container */
+    margin-top: auto; 
 }
 .btn-fav:hover {
     background: var(--dark-teal);
 }
-.btn-fav .far, .btn-fav .fas { /* For filled/unfilled heart */
-    margin-right: 8px; /* More space */
+.btn-fav .far, .btn-fav .fas 
+    margin-right: 8px;
 }
 
-/* Specific button styles for secondary actions, like reset */
 .btn-secondary {
     background-color: var(--grey-dark);
     color: var(--text-light);
 }
 .btn-secondary:hover {
-    background-color: #666; /* Slightly lighter grey on hover */
+    background-color: #666; 
 }
 
 
-/* Footer */
+			/* Footer */
+
 footer {
     background: var(--primary-dark);
     color: var(--text-medium);
-    padding: 3rem 0 1.5rem; /* Adjusted padding */
-    margin-top: 4rem; /* More space before footer */
-    border-top: 4px solid var(--primary-teal); /* Thicker top border */
+    padding: 3rem 0 1.5rem; 
+    margin-top: 4rem; 
+    border-top: 4px solid var(--primary-teal); 
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 2.5rem; /* Increased gap */
+    gap: 2.5rem; 
 }
 
 .footer-contact, .footer-info {
-    flex-basis: calc(50% - 1.25rem); /* Ensure gap calculation is correct */
+    flex-basis: calc(50% - 1.25rem); 
     min-width: 300px;
 }
 
 .footer-contact h4, .footer-info h4 {
     font-family: var(--font-primary);
     color: var(--light-teal);
-    font-size: 1.6rem; /* Larger footer headings */
-    margin-bottom: 1.2rem; /* More space */
+    font-size: 1.6rem; 
+    margin-bottom: 1.2rem; 
     border-bottom: 1px solid var(--grey-dark);
     padding-bottom: 0.5rem;
 }
 
 #contact-form input, #contact-form textarea {
     width: 100%;
-    padding: 0.8rem; /* More padding */
-    margin-bottom: 1rem; /* More spacing */
+    padding: 0.8rem; 
+    margin-bottom: 1rem; 
     border-radius: 5px;
     border: 1px solid var(--grey-dark);
-    background-color: rgba(255,255,255,0.08); /* Slightly more opaque */
+    background-color: rgba(255,255,255,0.08); 
     color: var(--text-light);
     font-family: var(--font-secondary);
     font-size: 1rem;
@@ -518,25 +525,25 @@ footer {
 }
 
 .footer-info p {
-    margin-bottom: 0.75rem; /* More space */
+    margin-bottom: 0.75rem; 
     font-size: 1rem;
 }
 .footer-info i {
-    margin-right: 12px; /* More space */
+    margin-right: 12px; 
     color: var(--light-teal);
-    width: 15px; /* Align icons */
+    width: 15px; 
     text-align: center;
 }
 
 .social-media a {
     color: var(--text-medium);
-    font-size: 1.6rem; /* Larger social icons */
+    font-size: 1.6rem; 
     margin-right: 18px;
     transition: color 0.3s ease, transform 0.2s ease;
 	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    display: inline-block; /* Needed for transform */
+    display: inline-block; 
 }
-.social-media a span { display: inline-block; } /* Needed for icon transform */
+.social-media a span { display: inline-block; } 
 
 .social-media a:hover span {
     color: var(--accent-red);
@@ -545,14 +552,14 @@ footer {
 
 .copyright {
     text-align: center;
-    margin-top: 2.5rem; /* More space */
-    padding-top: 1.5rem; /* More space */
+    margin-top: 2.5rem; 
+    padding-top: 1.5rem;
     border-top: 1px solid var(--grey-dark);
     font-size: 0.9rem;
     color: var(--text-medium);
 }
 
-/* Modals */
+		/* Modals */
 .modal {
     display: none;
     position: fixed;
@@ -562,8 +569,8 @@ footer {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Darker overlay */
-    backdrop-filter: blur(8px); /* Stronger blur */
+    background-color: rgba(0, 0, 0, 0.8); 
+    backdrop-filter: blur(8px); 
     -webkit-backdrop-filter: blur(8px);
 }
 
@@ -571,21 +578,21 @@ footer {
     background-color: var(--primary-dark);
     color: var(--text-light);
     margin: 10% auto;
-    padding: 30px; /* More padding */
+    padding: 30px; 
     border: 1px solid var(--primary-teal);
-    border-radius: 10px; /* More rounded */
+    border-radius: 10px; 
     width: 90%;
-    max-width: 480px; /* Slightly wider */
-    box-shadow: 0 8px 25px rgba(0,0,0,0.6); /* Stronger shadow */
+    max-width: 480px; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
     position: relative;
 }
 
 .close-btn {
     color: var(--text-medium);
-    position: absolute; /* Position explicitly */
+    position: absolute; 
     top: 15px;
     right: 20px;
-    font-size: 32px; /* Larger */
+    font-size: 32px; 
     font-weight: bold;
     line-height: 1;
 }
@@ -600,14 +607,14 @@ footer {
 .modal h2 {
     font-family: var(--font-primary);
     color: var(--light-teal);
-    margin-bottom: 2rem; /* More space */
+    margin-bottom: 2rem;
     text-align: center;
     font-size: 1.8rem;
 }
 
 .modal label {
     display: block;
-    margin-bottom: 0.6rem; /* More space */
+    margin-bottom: 0.6rem; 
     color: var(--text-medium);
     font-family: var(--font-secondary);
     font-size: 0.9rem;
@@ -620,8 +627,8 @@ footer {
 .modal input[type="date"],
 .modal select {
     width: 100%;
-    padding: 12px; /* More padding */
-    margin-bottom: 1.2rem; /* More space */
+    padding: 12px; 
+    margin-bottom: 1.2rem;
     border-radius: 5px;
     border: 1px solid var(--grey-dark);
     background-color: rgba(255,255,255,0.1);
@@ -635,12 +642,12 @@ footer {
 }
 .modal .btn {
     width: 100%;
-    margin-top: 1rem; /* More space above button */
-    padding: 0.9rem; /* Adjust button padding */
+    margin-top: 1rem; 
+    padding: 0.9rem; 
     font-size: 1rem;
 }
 .modal p {
-    margin-top: 1.5rem; /* More space */
+    margin-top: 1.5rem; 
     text-align: center;
     font-size: 0.9rem;
 }
@@ -651,10 +658,10 @@ footer {
 }
 .modal p a:hover {
     text-decoration: underline;
-    color: var(--accent-red); /* Change hover color */
+    color: var(--accent-red);
 }
 
-/* Responsive Design */
+		/* Responsive Design */
 @media (max-width: 992px) {
     .header-container {
         flex-direction: column;
@@ -662,7 +669,7 @@ footer {
     }
     .logo-link { margin-bottom: 1rem; }
     nav {
-        margin-top: 0; /* Removed top margin */
+        margin-top: 0; 
         width: 100%;
     }
     nav ul {
@@ -677,22 +684,22 @@ footer {
     }
     .nav-link {
         display: block;
-        padding: 0.8rem 1rem; /* Adjust padding */
-        background: rgba(255, 255, 255, 0.05); /* Subtle bg for clarity */
+        padding: 0.8rem 1rem; 
+        background: rgba(255, 255, 255, 0.05); 
         border-radius: 4px;
     }
     .dropdown-menu {
-        position: static; /* Static for mobile dropdown */
+        position: static; 
         background-color: transparent;
         box-shadow: none;
-        padding-left: 1.5rem; /* Indent sub-items more */
+        padding-left: 1.5rem; 
         border-left: 2px solid var(--primary-teal);
         margin-top: 0.5rem;
-        display: none; /* Initially hide */
-        width: auto; /* Let content determine width */
-        min-width: 0; /* Override previous min-width */
+        display: none; 
+        width: auto; 
+        min-width: 0; 
     }
-    /* Logic for opening mobile dropdown in JS needed - basic toggle: */
+
     .dropdown.open .dropdown-menu { display: block; }
 
     .dropdown-menu li a {
@@ -703,26 +710,26 @@ footer {
         background-color: var(--light-teal);
         color: var(--primary-dark);
     }
-    .dropdown .nav-link i { display: inline-block; /* Ensure chevron shows */}
+    .dropdown .nav-link i { display: inline-block; 
 
 
     .nav-icons {
         margin-top: 1rem;
-        align-self: flex-end; /* Icons to the right on mobile when nav is stacked */
-        margin-left: 0; /* Reset margin */
+        align-self: flex-end;
+        margin-left: 0; 
     }
-	.nav-icons a { margin-left: 15px; /* Adjust spacing for mobile */ }
+	.nav-icons a { margin-left: 15px; 
 
 
-    .profile-dropdown-menu { /* Ensure dropdown isn't cut off */
+    .profile-dropdown-menu { 
         right: auto;
         left: 0;
-        width: 100%; /* Full width on mobile */
+        width: 100%; 
         box-sizing: border-box;
     }
 
     .hero-slider {
-        height: 60vh; /* Shorter slider on mobile */
+        height: 60vh; 
     }
     .swiper-slide .title { font-size: 2.5rem; }
     .swiper-slide .subtitle { font-size: 1.4rem; }
@@ -736,19 +743,19 @@ footer {
 }
 
 @media (max-width: 768px) {
-    body { font-size: 15px; /* Adjust base font size */ }
+    body { font-size: 15px; 
 
-    .header-container .logo-link h1 { /* If used */
+    .header-container .logo-link h1 { 
         font-size: 1.5rem;
     }
-    .logo-img { height: 50px; } /* Slightly smaller logo */
+    .logo-img { height: 50px; } 
     .nav-icons { justify-content: space-around; width: 100%; margin-left:0; margin-top: 1.5rem;}
     .nav-icons a { margin: 0 10px; font-size: 1.1rem; }
 
     .locations-grid {
-        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+        grid-template-columns: 1fr; 
     }
-    .swiper-button-next, .swiper-button-prev { display: none; } /* Hide arrows on small screens */
+    .swiper-button-next, .swiper-button-prev { display: none; } 
     .swiper-slide .title { font-size: 2rem; }
     .swiper-slide .subtitle { font-size: 1.2rem; }
     .swiper-slide .text p { font-size: 1rem;}
@@ -756,7 +763,7 @@ footer {
     .featured-locations h2 { font-size: 2.2rem;}
     .location-card h3 { font-size: 1.3rem;}
 
-    .modal-content { margin: 15% auto; } /* Adjust modal margin */
+    .modal-content { margin: 15% auto; } 
 
 }
 
@@ -780,7 +787,7 @@ footer {
 
 }
 
-/* --- Tours Page Specific Styles --- */
+		/* --- Tours Page--- */
 .tours-page-content {
     padding-top: 2rem;
     padding-bottom: 3rem;
@@ -804,8 +811,6 @@ footer {
     line-height: 1.7;
 }
 
-
-/* --- Tours Grid & Cards --- */
 .tours-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -815,15 +820,15 @@ footer {
 .tour-card {
     background: var(--card-bg);
     border: 1px solid rgba(206, 204, 203, 0.2);
-    border-radius: 10px; /* Match location card */
+    border-radius: 10px; 
     box-shadow: var(--shadow);
-    overflow: hidden; /* To contain the image within rounded corners */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    height: 100%; /* Ensure cards in row are same height */
+    height: 100%; 
 }
 
 .tour-card:hover {
@@ -833,7 +838,7 @@ footer {
 
 .tour-card img {
     width: 100%;
-    height: 240px; /* Adjust height */
+    height: 240px;
     object-fit: cover;
     display: block;
 }
@@ -841,7 +846,7 @@ footer {
 .tour-card-content {
     padding: 1.5rem;
     color: var(--text-light);
-    flex-grow: 1; /* Allows content to fill space */
+    flex-grow: 1; 
     display: flex;
     flex-direction: column;
 }
@@ -867,8 +872,8 @@ footer {
     font-size: 0.95rem;
     color: var(--text-light);
     line-height: 1.6;
-    margin-bottom: 1.5rem; /* Space below description */
-    flex-grow: 1; /* Push highlights and button down */
+    margin-bottom: 1.5rem; 
+    flex-grow: 1;
 }
 
 .tour-highlights {
@@ -881,44 +886,40 @@ footer {
     font-family: var(--font-secondary);
     font-size: 0.9rem;
     color: var(--text-medium);
-    margin-bottom: 0.5rem; /* Increased spacing */
+    margin-bottom: 0.5rem; 
     display: flex;
     align-items: center;
 }
 
 .tour-highlights li i {
     color: var(--primary-teal);
-    margin-right: 10px; /* More space */
+    margin-right: 10px; 
     font-size: 0.8em;
-    min-width: 15px; /* Ensure alignment */
+    min-width: 15px; 
 }
 
-/* Tour Price */
+		/* Price */
 .tour-price {
-    font-family: var(--font-primary); /* Use primary font for emphasis */
-    font-size: 1.4rem; /* Larger price */
+    font-family: var(--font-primary); 
+    font-size: 1.4rem; 
     font-weight: 700;
-    color: var(--light-teal); /* Use highlight color */
-    margin-bottom: 1.5rem; /* Space below price, before button */
-    text-align: left; /* Align to left */
+    color: var(--light-teal);
+    margin-bottom: 1.5rem; 
+    text-align: left; 
 }
 
-/* Re-using .btn styles, targeting Add to Cart specifically */
 .btn-add-to-cart {
-    /* Inherits .btn styles */
-    margin-top: auto; /* Push to bottom */
-    width: 100%; /* Full width button */
+    margin-top: auto; 
+    width: 100%; 
 }
 
 .btn-add-to-cart i {
-    margin-right: 8px; /* Space between icon and text */
+    margin-right: 8px;
 }
 
-
-/* Responsive adjustments for tour cards */
 @media (max-width: 768px) {
     .tours-grid {
-        grid-template-columns: 1fr; /* Stack cards */
+        grid-template-columns: 1fr; 
     }
     .page-title { font-size: 2.4rem; }
     .page-intro { font-size: 1rem; }
@@ -927,26 +928,27 @@ footer {
 }
 
 
-/* --- Fandom/All Location Page Specific Styles --- */
+		/* --- Fandom/All Location Page--- */
 
 .fandom-page-content {
     padding-top: 2rem;
     padding-bottom: 3rem;
 }
 
-/* Filters Section Styles */
+		/* Filters Section*/
+	
 .filters-section {
-	background-color: rgba(11, 29, 36, 0.7); /* Slightly darker */
-    padding: 1.5rem 2rem; /* Adjust padding */
+    background-color: rgba(11, 29, 36, 0.7); 
+    padding: 1.5rem 2rem; 
     border-radius: 8px;
-    margin-bottom: 3rem; /* More space below */
+    margin-bottom: 3rem; 
     border: 1px solid var(--primary-teal);
 }
 .filters-section h3 {
     font-family: var(--font-primary);
     color: var(--light-teal);
     margin-bottom: 1.5rem;
-    font-size: 1.5rem; /* Adjust size */
+    font-size: 1.5rem; 
     text-align: center;
 }
 
@@ -954,14 +956,14 @@ footer {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 1.5rem 2rem; /* Row and column gap */
+	gap: 1.5rem 2rem; 
 	align-items: flex-end;
 }
 
 .filter-group {
 	display: flex;
 	flex-direction: column;
-	gap: 0.4rem; /* Space between label and select */
+	gap: 0.4rem; 
 }
 
 .filter-group label {
@@ -971,34 +973,33 @@ footer {
     font-weight: 500;
 }
 .filter-group select {
-	padding: 0.7rem 1.2rem; /* More padding */
+    padding: 0.7rem 1.2rem; 
     border-radius: 5px;
     border: 1px solid var(--grey-dark);
     background-color: white;
     color: var(--grey-dark);
     font-family: var(--font-secondary);
     font-size: 0.95rem;
-    min-width: 180px; /* Give select boxes a min width */
+    min-width: 180px; 
     cursor: pointer;
 }
 #location-filters button[type="reset"] {
-	padding: 0.7rem 1.5rem; /* Match select padding */
-    margin-bottom: 0; /* Align with bottom of selects */
-    /* Inherits .btn and .btn-secondary */
+    padding: 0.7rem 1.5rem; 
+    margin-bottom: 0; 
 }
 
-/* --- Location List & Entries --- */
-/* Container for dynamic locations */
+		/* --- Locations--- */
+	
 #wot-location-list,
 #hdm-location-list,
 #hp-location-list,
 #all-locations-list {
     display: flex;
     flex-direction: column;
-    gap: 3rem; /* Gap between location entries */
+    gap: 3rem; 
 }
 
-/* Loading/No Results messages */
+		/* Loading/No Results messages */
 .loading-message,
 .no-results {
     font-family: var(--font-secondary);
@@ -1010,22 +1011,23 @@ footer {
     border: 1px dashed var(--grey-dark);
     border-radius: 5px;
     background-color: rgba(0,0,0,0.1);
-    margin: 2rem 0; /* Add margin */
+    margin: 2rem 0; 
 }
 
 
-/* Individual Location Entry */
+		/* Individual Entry */
+	
 .location-entry {
     background: var(--card-bg);
     border: 1px solid rgba(206, 204, 203, 0.2);
-    border-radius: 10px; /* Match cards */
+    border-radius: 10px; 
     padding: 1.5rem;
     box-shadow: var(--shadow);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     display: grid;
-    grid-template-columns: 35% 1fr 30%; /* Swiper | Details | Map - Adjust % */
-    gap: 1.8rem; /* Increased gap */
+    grid-template-columns: 35% 1fr 30%; 
+    gap: 1.8rem; 
     align-items: start;
     overflow: hidden;
 }
@@ -1036,16 +1038,14 @@ footer {
     min-width: 0;
 }
 
-/* Column 1: Swiper */
+		/* Column 1 */
 .location-entry-swiper .location-swiper {
     width: 100%;
-    height: 380px; /* Taller swiper */
+    height: 380px; 
     border-radius: 6px;
     background-color: #222;
-    position: relative; /* For nav buttons */
+    position: relative; 
 }
-
-/* Remove overlay from location swiper slides */
 .location-entry .location-swiper .swiper-slide::before,
 .location-entry .location-swiper .swiper-slide::after {
     background: none !important;
@@ -1075,15 +1075,16 @@ footer {
 .location-swiper .swiper-button-prev:hover { background-color: rgba(0,0,0,0.7); }
 
 
-/* Column 2: Details */
+		/* Column 2*/
+	
 .location-entry-details {
     display: flex;
     flex-direction: column;
-    height: 100%; /* Try to make details fill height */
+    height: 100%; 
 }
 .location-entry-details h3 {
     font-family: var(--font-primary);
-    font-size: 1.8rem; /* Larger title */
+    font-size: 1.8rem; 
     color: var(--light-teal);
     margin-bottom: 0.6rem;
     line-height: 1.3;
@@ -1102,7 +1103,7 @@ footer {
     line-height: 1.7;
     color: var(--text-light);
     margin-bottom: 1.5rem;
-    flex-grow: 1; /* Push actions down */
+    flex-grow: 1; 
 }
 .location-entry-details .location-description p {
     margin-bottom: 1rem;
@@ -1111,18 +1112,19 @@ footer {
     margin-bottom: 0;
 }
 .location-entry-details .location-actions {
-    margin-top: auto; /* Push actions to bottom */
+    margin-top: auto; 
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    align-items: center; /* Align button text vertically */
+    align-items: center; 
 }
 .location-actions .btn {
     flex-shrink: 0;
-    padding: 0.7rem 1.5rem; /* Adjust padding if needed */
+    padding: 0.7rem 1.5rem; 
 }
-/* Reuse .btn-fav styling */
-.location-actions .btn-details { /* Optional styling for details button */
+
+
+.location-actions .btn-details { 
      background-color: var(--dark-teal);
 }
 .location-actions .btn-details:hover {
@@ -1137,19 +1139,21 @@ footer {
 }
 
 
-/* Column 3: Map */
+		/* Column 3 */
+	
 .location-entry-map .mini-map {
     width: 100%;
-    height: 380px; /* Match swiper height */
+    height: 380px; 
     border-radius: 6px;
     background-color: var(--grey-dark);
-    border: 1px solid var(--text-medium); /* Subtle border */
+    border: 1px solid var(--text-medium); 
 }
 
-/* Responsive Adjustments for Location Entries */
-@media (max-width: 1100px) { /* Wider breakpoint for switching layout */
+		/* Responsive Location Entries */
+	
+@media (max-width: 1100px) { 
     .location-entry {
-        grid-template-columns: 45% 1fr; /* Swiper + Details, map below */
+        grid-template-columns: 45% 1fr; 
         grid-template-areas:
             "swiper details"
             "map map";
@@ -1159,68 +1163,69 @@ footer {
     .location-entry-details { grid-area: details; }
     .location-entry-map {
         grid-area: map;
-        height: 350px; /* Adjust map height when stacked */
+        height: 350px;
     }
     .location-entry-swiper .location-swiper {
-         height: 350px; /* Match map height */
+         height: 350px; 
     }
 }
 
-@media (max-width: 767px) { /* Mobile */
+@media (max-width: 767px) { 
     .location-entry {
-        grid-template-columns: 1fr; /* Stack all three */
+        grid-template-columns: 1fr; 
          grid-template-areas:
              "swiper"
              "details"
             "map";
-         padding: 1.2rem; /* Adjust padding */
+         padding: 1.2rem; 
          gap: 1.5rem;
     }
      .location-entry-swiper .location-swiper,
      .location-entry-map .mini-map {
-        height: 300px; /* Further adjust height */
+        height: 300px; 
      }
     .location-entry-details h3 { font-size: 1.5rem; }
     .location-entry-details .location-description { font-size: 0.95rem; }
 }
 
-/* Adjust filter layout on smaller screens */
+		/* Filter layout */
+	
 @media (max-width: 600px) {
     #location-filters { flex-direction: column; align-items: stretch; gap: 1rem; }
     .filter-group { width: 100%; }
-    .filter-group select { width: 100%; } /* Full width selects */
+    .filter-group select { width: 100%; } 
     #location-filters button[type="reset"] { width: 100%; margin-top: 0.5rem; }
 }
 
-/* === Cart Page Specific Styles === */
+		/*Cart Page*/
 
 .cart-page-content {
     padding-top: 2rem;
     padding-bottom: 3rem;
 }
 
-.cart-page-content .page-title { /* Reuse styles if defined globally */
+.cart-page-content .page-title { 
     font-family: var(--font-primary);
     font-size: 2.8rem;
     color: var(--light-teal);
     text-align: center;
-    margin-bottom: 2rem; /* More space */
+    margin-bottom: 2rem; 
 }
 
 .cart-container {
     display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); /* Flexible columns */
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); 
     gap: 2.5rem; /* Increased gap */
     margin-bottom: 3rem;
-    align-items: start; /* Align tops of grid items */
+    align-items: start; 
 }
 
 .cart-items,
 .order-summary,
 .checkout-form-section {
     background: var(--card-bg);
-    padding: 2rem; /* Consistent padding */
-    border-radius: 10px; /* Match cards */
+    padding: 2rem; 
+    border-radius: 10px;
     border: 1px solid rgba(206, 204, 203, 0.15);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
@@ -1240,16 +1245,17 @@ footer {
 .checkout-form-section h4 {
     font-family: var(--font-primary);
     color: var(--text-light);
-    margin-top: 2rem; /* Space above section headers */
+    margin-top: 2rem; 
     margin-bottom: 1.2rem;
-    font-size: 1.4rem; /* Larger subheadings */
+    font-size: 1.4rem; 
 }
 
-/* Cart Items Styling */
-#cart-items-list { /* Target the specific container for items */
+		/* Cart Items*/
+	
+#cart-items-list { 
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* Gap between cart items */
+    gap: 1.5rem; 
 }
 
 .cart-item {
@@ -1257,11 +1263,11 @@ footer {
     gap: 1.5rem;
     padding: 1.5rem;
     border-bottom: 1px solid var(--grey-dark);
-    align-items: flex-start; /* Align items to top */
-    background-color: rgba(255, 255, 255, 0.04); /* Slight item background */
+    align-items: flex-start; 
+    background-color: rgba(255, 255, 255, 0.04); 
     border-radius: 6px;
 }
-/* Remove border from last item if inside a container */
+
 #cart-items-list .cart-item:last-child {
     border-bottom: none;
 }
@@ -1278,15 +1284,15 @@ footer {
 .cart-item-details {
     flex-grow: 1;
     display: flex;
-    flex-direction: column; /* Stack details */
+    flex-direction: column; 
 }
 .cart-item-details h4 {
-    font-size: 1.2rem; /* Larger item name */
+    font-size: 1.2rem; 
     font-family: var(--font-primary);
     color: var(--text-light);
     margin-bottom: 0.5rem;
 }
-.cart-item-details .item-price { /* Style price specifically */
+.cart-item-details .item-price {
     font-size: 1rem;
     color: var(--text-medium);
     margin-bottom: 0.8rem;
@@ -1299,13 +1305,13 @@ footer {
     align-items: center;
 }
 .cart-item-quantity label {
-    margin-right: 0.75rem; /* More space */
+    margin-right: 0.75rem; 
     font-size: 0.9rem;
     color: var(--text-medium);
 }
 .cart-item-quantity .quantity-input {
-    width: 65px; /* Wider input */
-    padding: 0.6rem; /* Adjust padding */
+    width: 65px; 
+    padding: 0.6rem; 
     text-align: center;
     border: 1px solid var(--grey-dark);
     border-radius: 4px;
@@ -1314,17 +1320,17 @@ footer {
     font-size: 1rem;
     font-family: var(--font-secondary);
 }
-/* Remove arrows from number input */
+
 .cart-item-quantity .quantity-input::-webkit-outer-spin-button,
 .cart-item-quantity .quantity-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .cart-item-quantity .quantity-input[type=number] { -moz-appearance: textfield; }
 
-/* Style the whole row containing quantity and remove button */
+
 .cart-item-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto; /* Push to bottom of details flex */
+    margin-top: auto; 
 }
 
 
@@ -1332,23 +1338,21 @@ footer {
     background: none;
     border: none;
     color: var(--accent-red);
-    font-size: 1.1rem; /* Adjust size */
+    font-size: 1.1rem;
     cursor: pointer;
-    padding: 0.5rem; /* Easier click target */
+    padding: 0.5rem;
     transition: color 0.3s ease, transform 0.2s ease;
-    /* margin-left: auto; Remove auto margin if using flex space-between */
 }
 .btn-remove-item:hover {
     color: var(--primary-red);
     transform: scale(1.1);
 }
 
-.empty-cart-message { /* Re-use from location list styling */
-    /* Styles are defined under Fandom/All location */
-    border-style: solid; /* Maybe solid looks better here */
+.empty-cart-message { 
+    border-style: solid; 
     font-size: 1.2rem;
 }
-.empty-cart-message a { /* Specific link style */
+.empty-cart-message a { 
     color: var(--light-teal);
     text-decoration: underline;
     font-weight: 500;
@@ -1358,11 +1362,11 @@ footer {
 }
 
 
-/* Order Summary Styling */
-#order-summary-details { /* Target specific container */
+		/* Order */
+#order-summary-details { 
     display: flex;
     flex-direction: column;
-    gap: 0.75rem; /* Space between summary rows */
+    gap: 0.75rem; 
 }
 
 .summary-row {
@@ -1374,41 +1378,42 @@ footer {
     border-bottom: 1px dashed var(--grey-dark);
     font-family: var(--font-secondary);
 }
-.summary-row span:first-child { /* Label */
+.summary-row span:first-child { 
     color: var(--text-medium);
 }
-.summary-row span:last-child { /* Value */
+.summary-row span:last-child { 
     font-weight: 500;
 }
 
 #order-summary-details .summary-row:last-child {
      border-bottom: none;
-} /* Remove last border */
+} 
 
 .summary-row.total-row {
     font-weight: bold;
-    font-size: 1.3rem; /* Larger total */
+    font-size: 1.3rem; 
     color: var(--light-teal);
     padding-top: 1rem;
     margin-top: 0.5rem;
     border-top: 1px solid var(--text-medium);
-    border-bottom: none; /* Ensure no bottom border */
+    border-bottom: none; 
 }
 .summary-row.total-row span:first-child {
-    color: var(--light-teal); /* Make label match value color */
+    color: var(--light-teal); 
 }
 
 
-/* Checkout Form Styling */
+		/* Checkout Form*/
+	
 .checkout-form-section {
-    margin-top: 0; /* Removed margin, already in grid */
-    grid-column: 1 / -1; /* Span full width below cart/summary */
-    margin-top: 2.5rem; /* Add space above checkout */
+    margin-top: 0; 
+    grid-column: 1 / -1;
+    margin-top: 2.5rem; 
 }
 #order-form .form-row { display: flex; gap: 1.5rem; margin-bottom: 0; }
-#order-form .form-row .form-group { flex: 1; } /* Equal width in row */
+#order-form .form-row .form-group { flex: 1; }
 
-#order-form .form-group { margin-bottom: 1.2rem; /* More spacing */ }
+#order-form .form-group { margin-bottom: 1.2rem; 
 #order-form .form-group label { display: block; color: var(--text-medium); margin-bottom: 0.6rem; font-size: 0.9rem; font-family: var(--font-secondary); font-weight: 500;}
 #order-form .form-group input[type="text"],
 #order-form .form-group input[type="email"],
@@ -1418,13 +1423,12 @@ footer {
     color: var(--text-light); font-size: 1rem; font-family: var(--font-secondary);
 }
 #order-form .form-group input::placeholder { color: var(--text-medium); opacity: 0.7; }
-#order-form .form-group input[type="checkbox"] { margin-right: 0.6rem; vertical-align: middle; width: auto; accent-color: var(--primary-teal);} /* Style checkbox */
+#order-form .form-group input[type="checkbox"] { margin-right: 0.6rem; vertical-align: middle; width: auto; accent-color: var(--primary-teal);} 
 #order-form .form-group label a { color: var(--light-teal); text-decoration: none; }
 #order-form .form-group label a:hover { text-decoration: underline; color: var(--accent-red); }
 .required { color: var(--accent-red); margin-left: 0.3em; font-weight: bold; }
 
 .btn-checkout {
-    /* Inherits .btn styles */
     width: 100%;
     padding: 1rem 1.5rem;
     font-size: 1.1rem;
@@ -1432,38 +1436,37 @@ footer {
 }
 
 
-/* Cart Page Responsive Adjustments */
 @media (max-width: 992px) {
     .cart-container {
-        grid-template-columns: 1fr; /* Stack items and summary */
+        grid-template-columns: 1fr; 
     }
      .order-summary {
-        margin-top: 0; /* No margin needed when stacked by grid */
+        margin-top: 0; 
     }
 }
 @media (max-width: 768px) {
-    .checkout-form-section { padding: 1.5rem; } /* Less padding */
+    .checkout-form-section { padding: 1.5rem; } 
     #order-form .form-row {
         flex-direction: column;
-        gap: 0; /* Groups have own margin */
+        gap: 0; 
     }
     .cart-item {
         flex-direction: column;
-        align-items: center; /* Center image stack */
-        text-align: center; /* Center text */
+        align-items: center; 
+        text-align: center; 
         padding: 1.2rem;
     }
     .cart-item-image {
-        width: 130px; /* Image slightly larger when stacked */
+        width: 130px; 
         height: 130px;
-        margin-bottom: 1rem; /* Space below image */
+        margin-bottom: 1rem; 
     }
     .cart-item-details {
-        align-items: center; /* Center details content */
+        align-items: center;
     }
     .cart-item-details h4 { font-size: 1.1rem; }
     .cart-item-controls {
-        flex-direction: column; /* Stack qty and remove button */
+        flex-direction: column; 
         align-items: center;
         gap: 1rem;
         width: 100%;
@@ -1480,11 +1483,12 @@ footer {
 }
 @media (max-width: 480px) {
     .cart-page-content .page-title { font-size: 2.2rem;}
-    .cart-item-image { width: 100px; height: 100px; } /* Smaller image on smallest screens */
+    .cart-item-image { width: 100px; height: 100px; } 
 }
 
 
-/* === Favorites Page Styles === */
+		/*Favorites Page*/
+			 
 .favorites-page-content {
     padding-top: 2rem;
     padding-bottom: 3rem;
@@ -1493,14 +1497,14 @@ footer {
 .favorites-map-container {
     margin-bottom: 3rem;
     border: 2px solid var(--primary-teal);
-    border-radius: 10px; /* Match other rounded corners */
+    border-radius: 10px; 
     overflow: hidden;
     box-shadow: var(--shadow);
 }
 
 #all-favorites-map {
     width: 100%;
-    height: 500px; /* Taller map */
+    height: 500px; 
     background-color: var(--grey-dark);
 }
 
@@ -1516,51 +1520,50 @@ footer {
 #favorite-locations-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* Spacing between favorite items */
+    gap: 1.5rem; 
 }
 
-/* Favorite item list entry */
 .favorite-item-entry {
-    background: rgba(255, 255, 255, 0.04); /* Use subtle bg, slightly different from card-bg */
+    background: rgba(255, 255, 255, 0.04); 
     border: 1px solid rgba(206, 204, 203, 0.15);
     border-radius: 8px;
-    padding: 1.2rem 1.5rem; /* Adjust padding */
+    padding: 1.2rem 1.5rem; 
     display: flex;
     align-items: center;
     gap: 1.8rem; /* Increase gap */
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15); /* Subtle shadow */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
     transition: background-color 0.2s ease-in-out;
 }
 .favorite-item-entry:hover {
-     background-color: rgba(255, 255, 255, 0.08); /* Lighten on hover */
+     background-color: rgba(255, 255, 255, 0.08); 
 }
 
 .favorite-item-image {
-    width: 90px; /* Larger image */
+    width: 90px; 
     height: 90px;
     object-fit: cover;
-    border-radius: 6px; /* Rounded image */
+    border-radius: 6px; 
     flex-shrink: 0;
-    border: 1px solid var(--text-medium); /* Subtle border */
+    border: 1px solid var(--text-medium); 
 }
 
 .favorite-item-details {
     flex-grow: 1;
 }
 .favorite-item-details h4 {
-    font-size: 1.3rem; /* Larger title */
+    font-size: 1.3rem; 
     font-family: var(--font-primary);
     color: var(--light-teal);
     margin-bottom: 0.4rem;
 }
-.favorite-item-details p { /* Fandom text */
+.favorite-item-details p 
     font-size: 0.95rem;
     color: var(--text-medium);
     margin-bottom: 0.3rem;
     font-family: var(--font-secondary);
     font-style: italic;
 }
-.favorite-item-details .location-meta { /* Country, Continent */
+.favorite-item-details .location-meta 
     font-size: 0.85rem;
     color: var(--grey-dark);
     font-weight: 500;
@@ -1568,26 +1571,24 @@ footer {
     font-family: var(--font-secondary);
 }
 
-/* Reuse .btn-fav but style specifically for remove action if needed */
 .favorite-item-actions .btn-fav {
-    margin-left: auto; /* Push to the right */
-    padding: 0.6rem 1rem; /* Smaller button */
+    margin-left: auto; 
+    padding: 0.6rem 1rem; 
     font-size: 0.85rem;
-    background-color: var(--primary-red); /* Use red for remove */
+    background-color: var(--primary-red); 
 }
 .favorite-item-actions .btn-fav:hover {
-    background-color: var(--accent-red); /* Darker red on hover */
+    background-color: var(--accent-red); 
 }
 .favorite-item-actions .btn-fav i {
-    margin-right: 5px; /* Space between icon and text */
-    font-size: 0.9em; /* Adjust icon size if needed */
+    margin-right: 5px; 
+    font-size: 0.9em; 
 }
 
 
 #favorite-locations-list .loading-message,
 #favorite-locations-list .no-results {
-    /* Shared styles with general loading message */
-     border: 1px solid var(--grey-dark); /* Solid border maybe? */
+     border: 1px solid var(--grey-dark); 
      font-size: 1.2rem;
      margin-top: 2rem;
 }
