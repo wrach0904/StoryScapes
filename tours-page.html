@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tours - StoryScapes</title>
 
-    <!-- External CSS Libraries -->
+    <!--CSS Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-    <!-- Your Custom CSS -->
+    <!--CSS -->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -30,7 +30,7 @@
                         </ul>
                     </li>
                     <li><a href="all-storycapes.html" class="nav-link">All StoryScapes</a></li>
-                    <li><a href="tours-page.html" class="nav-link active-page">Tours</a></li> <!-- Active Page Link -->
+                    <li><a href="tours-page.html" class="nav-link active-page">Tours</a></li>
                 </ul>
             </nav>
             <div class="nav-icons">
@@ -46,13 +46,14 @@
 
     <main>
         <section class="tours-page-content container">
-            <h2 class="page-title">Our Curated StoryScapes Tours</h2>
+            <h2 class="page-title">Our StoryScapes Tours</h2>
             <p class="page-intro">
                 Embark on unforgettable journeys into the heart of your favorite stories. Our expertly guided tours take you to the very locations that inspired authors and filmmakers, offering a unique blend of real-world exploration and fictional wonder.
             </p>
 
             <div class="tours-grid">
-                <!-- Tour Card 1: Harry Potter's Oxford -->
+                
+		<!-- Tour1: Harry Potter's Oxford -->
                 <div class="tour-card">
                     <img src="12HPtour.jpg" alt="Harry Potter Oxford Tour">
                     <div class="tour-card-content">
@@ -66,7 +67,7 @@
                             <li><i class="fas fa-check"></i> Explore famous filming corridors.</li>
                             <li><i class="fas fa-check"></i> See the real "Restricted Section."</li>
                         </ul>
-						<p class="tour-price">£15.00</p> <!-- Corrected currency display -->
+			<p class="tour-price">£15.00</p>
                         <button class="btn btn-add-to-cart"
                                 data-tour-id="hp-oxford-15"
                                 data-tour-name="Harry Potter's Oxford Adventure"
@@ -77,7 +78,7 @@
                     </div>
                 </div>
 
-                <!-- Tour Card 2: His Dark Materials Oxford -->
+                <!-- Tour2: His Dark Materials Oxford -->
                 <div class="tour-card">
                     <img src="11LyrasOX.png" alt="His Dark Materials Oxford Tour">
                     <div class="tour-card-content">
@@ -91,7 +92,7 @@
                             <li><i class="fas fa-check"></i> Walk the Covered Market paths.</li>
                             <li><i class="fas fa-check"></i> Uncover hidden inter-world "windows."</li>
                         </ul>
-						<p class="tour-price">£15.00</p>
+			<p class="tour-price">£15.00</p>
                         <button class="btn btn-add-to-cart"
                                 data-tour-id="hdm-oxford-15"
                                 data-tour-name="Lyra's Oxford: A His Dark Materials Tour"
@@ -102,7 +103,7 @@
                     </div>
                 </div>
 
-                <!-- Tour Card 3: Warner Bros. Studio Tour -->
+                <!-- Tour3: Warner Bros Studio -->
                 <div class="tour-card">
                     <img src="10WBSL.png" alt="Warner Bros Studio Tour">
                     <div class="tour-card-content">
@@ -116,7 +117,7 @@
                             <li><i class="fas fa-check"></i> Explore Diagon Alley.</li>
                             <li><i class="fas fa-check"></i> See iconic props and costumes.</li>
                         </ul>
-						<p class="tour-price">£60.00</p>
+			<p class="tour-price">£60.00</p>
                         <button class="btn btn-add-to-cart"
                                 data-tour-id="wb-studio-london-60"
                                 data-tour-name="Warner Bros. Studio Tour London"
@@ -127,7 +128,7 @@
                     </div>
                 </div>
 
-                <!-- Tour Card 4: Wheel of Time Prague Studio Insights -->
+                <!-- Tour4: Jordan Studio-->
                 <div class="tour-card">
                     <img src="13JSP.png" alt="Jordan Studios Prague Tour">
                     <div class="tour-card-content">
@@ -141,7 +142,7 @@
                             <li><i class="fas fa-check"></i> Learn about the series' set construction scale.</li>
                             <li><i class="fas fa-check"></i> Immerse yourself in WoT's visual world creation concepts.</li>
                         </ul>
-						<p class="tour-price">£50.00</p>
+			<p class="tour-price">£50.00</p>
                         <button class="btn btn-add-to-cart"
                                 data-tour-id="wot-prague-studio-50"
                                 data-tour-name="Jordan Studios Insights (Prague)"
@@ -184,7 +185,7 @@
         </div>
     </footer>
 
-    <!-- Login/Register Modals -->
+    <!-- Login/Register Symulation -->
      <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeLoginModal">&times;</span>
@@ -226,11 +227,11 @@
     </div>
 
 
-    <!-- External JS Libraries -->
+    <!-- JS Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-    <!-- Your Custom JS: -->
+    <!--JS: -->
     <script src="script.js"></script>
 
 </body>
