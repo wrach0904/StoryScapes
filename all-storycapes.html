@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explore Locations by Continent - StoryScapes</title>
 
-    <!-- External CSS Libraries -->
+    <!--CSS Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-    <!-- Your Custom CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header>
-        <!-- Your Standard Header -->
          <div class="container header-container">
              <a href="index.html" class="logo-link">
                  <img src="Logo1.png" alt="StoryScapes Logo" class="logo-img" />
@@ -46,7 +45,7 @@
     </header>
 
     <main>
-        <section class="fandom-page-content container"> <!-- Reuse class for consistent padding/layout -->
+        <section class="fandom-page-content container"> 
             <h2 class="page-title">Explore All Story Scapes</h2>
             <p class="page-intro">
                 Discover iconic locations from across your favorite fandoms, side-by-side. Use the filters below to narrow your search by Fandom, Continent, or Country and embark on a global adventure through fictional worlds made real.
@@ -97,18 +96,15 @@
                  </form>
             </section>
 
-            <!-- Location List Container -->
-            <!-- THIS DIV WILL BE POPULATED BY SCRIPT.JS -->
+
             <div id="all-locations-list">
-                 <!-- Location entries (<article>) will be injected here -->
-                 <p class="loading-message">Loading locations...</p> <!-- Optional loading indicator -->
+                 <p class="loading-message">Loading locations...</p> 
             </div>
 
         </section>
     </main>
 
     <footer>
-        <!-- Your Standard Footer -->
          <div class="container footer-container">
             <div class="footer-contact">
                 <h4>Contact Us</h4>
@@ -137,7 +133,6 @@
         </div>
     </footer>
 
-    <!-- Include Standard Modals -->
      <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeLoginModal">&times;</span>
@@ -182,7 +177,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-    <!-- Your Custom JS (MUST BE THE VERSION WITH DYNAMIC RENDERING) -->
+    <!-- JS  -->
     <script src="script.js"></script>
 </body>
 </html>
