@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Wheel of Time Locations - StoryScapes</title>
 
-    <!-- External CSS Libraries -->
+    <!--Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-    <!-- Your Custom CSS (Ensure path is correct) -->
+    <!--CSS-->
     <link rel="stylesheet" href="style.css" />
+	
 </head>
 <body>
     <header>
-        <!-- Keep your existing working Header code here -->
          <div class="container header-container">
              <a href="index.html" class="logo-link">
                  <img src="Logo1.png" alt="StoryScapes Logo" class="logo-img" />
@@ -27,7 +27,7 @@
                          <ul class="dropdown-menu">
                              <li><a href="hp-page.html">Harry Potter</a></li>
                              <li><a href="hdm-page.html">His Dark Materials</a></li>
-                            <li><a href="wot-page.html" class="active-page">The Wheel of Time</a></li> <!-- Make specific fandom active -->
+                            <li><a href="wot-page.html" class="active-page">The Wheel of Time</a></li>
                          </ul>
                      </li>
                      <li><a href="all-storycapes.html" class="nav-link">All StoryScapes</a></li>
@@ -52,7 +52,7 @@
                 Step into the vivid world of The Wheel of Time, where ancient prophecies stir and magic weaves through every corner of the land. Explore the breathtaking landscapes and hidden corners that breathe life into Rand al’Thor’s journey—from tranquil villages and towering white towers to mystical rivers and battle-scarred ruins. These real-world locations, transformed by vision and craft, echo with the power, mystery, and destiny of Robert Jordan’s epic saga.
             </p>
 
-            <!-- Filtering Section -->
+            <!-- Filtering-->
             <section class="filters-section">
                  <h3>Filter Locations</h3>
                  <form id="location-filters">
@@ -64,6 +64,7 @@
                              <option value="Africa">Africa</option>
                         </select>
                      </div>
+			 
                     <div class="filter-group">
                          <label for="filter-country">Country:</label>
                          <select id="filter-country" name="country">
@@ -72,18 +73,19 @@
                              <option value="Italy">Italy</option>
                              <option value="Czech Republic">Czech Republic</option>
                              <option value="Morocco">Morocco</option>
-							 <option value="South Africa">South Africa</option>
-							 <option value="Western Sahara">Western Sahara</option>
+			     <option value="South Africa">South Africa</option>
+			     <option value="Western Sahara">Western Sahara</option>
                          </select>
                      </div>
+			 
                      <button type="reset" class="btn btn-secondary" id="reset-filters">Reset Filters</button>
                  </form>
             </section>
 
-            <!-- Location List Container -->
-            <!-- JavaScript will inject location articles here -->
+	   <!--Locations-->
+
             <div id="wot-location-list">
-                <p class="loading-message">Loading locations...</p> <!-- Optional -->
+                <p class="loading-message">Loading locations...</p>
             </div>
 
         </section>
@@ -119,7 +121,7 @@
     </footer>
 
 
-    <!-- Login Modal -->
+    <!-- Login-Symulation-->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeLoginModal">×</span>
@@ -136,7 +138,7 @@
     </div>
 
 
-    <!-- Register Modal -->
+    <!-- Register-Symulation-->
     <div id="registerModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeRegisterModal">×</span>
@@ -163,11 +165,11 @@
         </div>
     </div>
 
-    <!-- External JS Libraries (Load before your script) -->
+    <!--JS Libraries-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-    <!-- Your Custom JS (Load LAST) -->
+    <!--My JS-->
     <script src="script.js"></script>
 </body>
 </html>
