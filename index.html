@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StoryScapes - Explore Your Favorite Worlds</title>
 
-    <!-- External CSS Libraries (Internet Connection) -->
+    <!--CSS Libraries-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-    <!-- My Custom CSS-->
+    <!--CSS-->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -30,17 +30,22 @@
                             <li><a href="wot-page.html">The Wheel of Time</a></li>
                         </ul>
                     </li>
-					<li><a href="all-storycapes.html" class="nav-link">All StoryScapes</a></li>
-                    <li><a href="tours-page.html" class="nav-link">Tours</a></li>
+		    
+		<li>
+			<a href="all-storycapes.html" class="nav-link">All StoryScapes</a>
+		</li>
+			<li>
+				<a href="tours-page.html" class="nav-link">Tours</a>
+			</li>
                 </ul>
             </nav>
+		
             <div class="nav-icons">
                 <a href="favorites-page.html" aria-label="Favorites" id="favorites-icon"><i class="fas fa-heart"></i></a>
                 <a href="cart-page.html" aria-label="Shopping Cart" id="cart-icon"><i class="fas fa-shopping-cart"></i> <span class="cart-count is-empty">(0)</span></a>
                 <div class="profile-menu">
                     <a href="#" aria-label="User Profile" id="user-profile-icon"><i class="fas fa-user"></i></a>
                     <div class="profile-dropdown-menu" id="profile-dropdown">
-                        <!-- Content populated by JavaScript -->
                     </div>
                 </div>
             </div>
@@ -49,11 +54,10 @@
 
 
     <main>
-        <!-- Swiper Carousel -->
         <section class="hero-slider">
-             <!-- Make sure this selector is unique or precisely targeted -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
+			
                     <!-- Slide 1 -->
                     <div class="swiper-slide" style="background-image: url('1wheeloftime.png');">
                          <div class="slide-content">
@@ -64,6 +68,7 @@
                             </div>
                         </div>
                     </div>
+			
                     <!-- Slide 2 -->
 					<div class="swiper-slide" style="background-image: url('2hisdarkmaterials.png');">
                         <div class="slide-content">
@@ -74,6 +79,7 @@
                             </div>
                         </div>
                     </div>
+			
                     <!-- Slide 3 -->
                     <div class="swiper-slide" style="background-image: url('3harrypotter.png');">
                          <div class="slide-content">
@@ -85,10 +91,10 @@
                         </div>
                     </div>
                 </div>
-                 <!-- Add Navigation -->
+
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-                <!-- Add Pagination -->
+
                 <div class="swiper-pagination"></div>
             </div>
         </section>
@@ -105,35 +111,39 @@
                     <div id="map1" class="mini-map"></div>
                     <button class="btn btn-fav"><i class="far fa-heart"></i> Add to Favorites</button>
                 </div>
-                <div class="location-card"> <!-- Needs data-location-id added by JS -->
+                <div class="location-card"> 
                     <img src="6Great Soca Gorge.png" alt="Great Soča Gorge: Two Rivers">
                     <h3>Great Soča Gorge: Two Rivers</h3>
                     <p>The Great Soča Gorge in Slovenia serves as a striking part of the Two Rivers landscape in The Wheel of Time, where the ritual of joining the Women's Circle takes place. The gorge's turquoise waters and towering cliffs capture the natural beauty and mysticism of this pivotal moment in the series.</p>
                      <div id="map2" class="mini-map"></div>
                     <button class="btn btn-fav"><i class="far fa-heart"></i> Add to Favorites</button>
                 </div>
-                 <div class="location-card"> <!-- Needs data-location-id added by JS -->
+		    
+                <div class="location-card"> 
                     <img src="9Glenfinnan-Viaduct.png" alt="Glenfinnan: Hogwarts' landscapes.">
                     <h3>Glenfinnan:<br>Hogwarts' landscapes.</h3>
                     <p>Glenfinnan Viaduct and Loch Shiel, located in the Scottish Highlands, form some of the most iconic backdrops in the Harry Potter films. The Hogwarts Express famously crosses the viaduct on its way to school, while Loch Shiel stands in for the Black Lake.</p>
                      <div id="map3" class="mini-map"></div>
                     <button class="btn btn-fav"><i class="far fa-heart"></i> Add to Favorites</button>
                 </div>
-				<div class="location-card"> <!-- Needs data-location-id added by JS -->
+		    
+		<div class="location-card"> 
                     <img src="5Govan-chapel.jpg" alt="Saint Govan's Chapel: Mrs. Coulter's hideout">
                     <h3>Saint Govan's Chapel:<br>Mrs. Coulter's hideout</h3>
                     <p>Saint Govan's Chapel, perched on the cliffs of Pembrokeshire, was used as the setting for Mrs. Coulter's hideout in His Dark Materials. Its secluded, rugged location and historic charm make it the perfect backdrop for the character’s secretive and enigmatic presence.</p>
                     <div id="map4" class="mini-map"></div>
                     <button class="btn btn-fav"><i class="far fa-heart"></i> Add to Favorites</button>
                 </div>
-                <div class="location-card"> <!-- Needs data-location-id added by JS -->
+		    
+                <div class="location-card"> 
                     <img src="7Masseria Lo Spagnulo.png" alt="Masseria Lo Spagnulo: Home Of Two Brown Ajah Sisters">
                     <h3>Masseria Lo Spagnulo: Home Of Two Brown Ajah Sisters</h3>
                     <p>Masseria Lo Spagnulo, an 18th-century fortified farmhouse near Ostuni in Puglia, Italy, served as the home of Brown Ajah sisters Verin and Adeleas in The Wheel of Time Season 2. It’s also where Moiraine and Lan took refuge for a time. Today, this historic masseria operates as a 3-star hotel.</p>
                      <div id="map5" class="mini-map"></div>
                     <button class="btn btn-fav"><i class="far fa-heart"></i> Add to Favorites</button>
                 </div>
-                 <div class="location-card"> <!-- Needs data-location-id added by JS -->
+		    
+		 <div class="location-card"> 
                     <img src="8alnwick-castle.jpg" alt="Alnwick Castle">
                     <h3>Alnwick Castle: Time For Flying Lessons</h3>
                     <p>A Castle set in Northumberland, England, was used as the filming location for Hogwarts in Harry Potter and the Philosopher’s Stone, most notably for Madam Hooch’s flying lesson scene. The castle’s outer bailey served as the training ground where Harry first learns to ride a broom.</p>
@@ -176,7 +186,7 @@
     </footer>
 
 
-    <!-- Login Modal -->
+    <!-- Login -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeLoginModal">×</span>
@@ -193,7 +203,7 @@
     </div>
 
 
-    <!-- Register Modal -->
+    <!-- Register -->
     <div id="registerModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeRegisterModal">×</span>
@@ -220,12 +230,12 @@
         </div>
     </div>
 
-    <!-- External JS Libraries (Requires Internet Connection) -->
-     <!-- Swiper JS -->
+    <!-- JS Libraries-->
+    <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-    <!-- Your Custom JS: Make sure 'script.js' is in the SAME FOLDER as this index.html file -->
+    <!--JS-->
     <script src="script.js"></script>
 </body>
 </html>
