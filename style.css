@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 :root {
     --primary-dark: #0b1d24;
@@ -15,7 +15,7 @@
     --white: #ffffff;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     --card-bg: rgba(255, 255, 255, 0.05); 
-    --font: 'Candara', sans-serif;
+    --font: 'Montserrat', sans-serif;
 }
 
 * {
@@ -25,7 +25,7 @@
 }
 
 body {
-    font-family: var(--font-secondary); 
+    font-family: var(--font); 
     line-height: 1.6;
     color: var(--text-light);
     background: linear-gradient(180deg, var(--dark-teal) 0%, var(--primary-dark) 30%, var(--primary-dark) 70%, #2a0101 100%); 
