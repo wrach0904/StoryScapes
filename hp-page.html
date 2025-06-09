@@ -5,18 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Harry Potter Locations - StoryScapes</title>
 
-    <!-- External CSS Libraries -->
+    <!-- CSS Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-    <!-- Your Custom CSS (Ensure path is correct) -->
+    <!--CSS  -->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header>
-        <!-- Keep your existing working Header code here -->
-        <!-- Example: -->
          <div class="container header-container">
              <a href="index.html" class="logo-link">
                  <img src="Logo1.png" alt="StoryScapes Logo" class="logo-img" />
@@ -26,7 +24,7 @@
                      <li class="dropdown">
                         <a href="#" class="nav-link">Fandom <i class="fas fa-chevron-down"></i></a>
                          <ul class="dropdown-menu">
-                             <li><a href="hp-page.html" class="active-page">Harry Potter</a></li> <!-- Make specific fandom active -->
+                             <li><a href="hp-page.html" class="active-page">Harry Potter</a></li> 
                              <li><a href="hdm-page.html">His Dark Materials</a></li>
                             <li><a href="wot-page.html">The Wheel of Time</a></li>
                          </ul>
@@ -62,7 +60,6 @@
                         <select id="filter-continent" name="continent">
                             <option value="all">All Continents</option>
                              <option value="Europe">Europe</option>
-                             <!-- Add other relevant continents if HP locations expand -->
                         </select>
                      </div>
                     <div class="filter-group">
@@ -73,7 +70,6 @@
 							 <option value="Ireland">Ireland</option>
 							 <option value="Scotland">Scotland</option>
 							 <option value="Wales">Wales</option>
-                              <!-- Add other countries if HP locations expand -->
                          </select>
                      </div>
                      <button type="reset" class="btn btn-secondary" id="reset-filters">Reset Filters</button>
@@ -83,7 +79,7 @@
             <!-- Location List -->
              <!-- JS Will populate this container -->
             <div id="hp-location-list">
-                <p class="loading-message">Loading locations...</p> <!-- Optional -->
+                <p class="loading-message">Loading locations...</p> 
             </div> <!-- End #hp-location-list -->
 
         </section>
@@ -118,7 +114,7 @@
         </div>
     </footer>
 
-    <!-- Login/Register Modals -->
+    <!-- Login/Register -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeLoginModal">×</span>
@@ -159,11 +155,11 @@
         </div>
     </div>
 
-    <!-- External JS Libraries (Load before your script) -->
+    <!--JS Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-    <!-- Your Custom JS (Load LAST) -->
+    <!--JS -->
     <script src="script.js"></script>
 </body>
 </html>
