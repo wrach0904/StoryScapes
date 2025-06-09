@@ -53,14 +53,219 @@ document.addEventListener('DOMContentLoaded', () => {
 		{ id: 'idx-map-linker-5', originalMapId: 'map5', linkToId: 'wot-2' }, 
 		{ id: 'idx-map-linker-6', originalMapId: 'map6', linkToId: 'hp-1'  }
     ];
-    const mapInstances = {}; let isLoggedIn = false; const CART_KEY = 'storyScapesCart_v2'; const FAVORITES_KEY = 'storyScapesFavorites_v2';
-    function safeQuerySelector(s, c=document){try{return c.querySelector(s);}catch(e){return null;}} function safeQuerySelectorAll(s,c=document){try{return c.querySelectorAll(s);}catch(e){return[];}}
-    function openModal(el){if(!el)return;el.style.display='block';const pd=safeQuerySelector('#profile-dropdown');if(pd)pd.classList.remove('active');} function closeModal(el){if(!el)return;el.style.display='none';}
-    function updateProfileDropdown(){const dm=safeQuerySelector('#profile-dropdown');if(!dm)return;dm.innerHTML='';if(isLoggedIn){dm.innerHTML=`<a href="#profile">Profile</a><a href="favorites-page.html">Favs</a><a href="cart-page.html">Cart</a><button id="logoutButton">Logout</button>`;const lb=safeQuerySelector('#logoutButton',dm);if(lb)lb.addEventListener('click',handleLogout);}else{dm.innerHTML=`<a href="#" id="loginLink">Login</a><a href="#" id="registerLink">Register</a>`;const ll=safeQuerySelector('#loginLink',dm),rl=safeQuerySelector('#registerLink',dm),lmo=safeQuerySelector('#loginModal'),rmo=safeQuerySelector('#registerModal');if(ll&&lmo)ll.onclick=(e)=>{e.preventDefault();openModal(lmo);};if(rl&&rmo)rl.onclick=(e)=>{e.preventDefault();openModal(rmo);};}} function handleLogout(){isLoggedIn=false;updateProfileDropdown();alert('Logged out.');}
-    function initMiniMap(id,cds,zm=9,popTxt='',isInt=false){if(typeof L==='undefined'){return null;} const mc=safeQuerySelector(`#${id}`);if(!mc){return null;} if(mc._leaflet_id)return mapInstances[id]; if(!Array.isArray(cds)||cds.length!==2||typeof cds[0]!=='number'||typeof cds[1]!=='number'){mc.innerHTML=`<p style="color:red;padding:10px;">Bad Coords</p>`;return null;} try{const o={scrollWheelZoom:isInt,dragging:isInt,zoomControl:true,tap:isInt,touchZoom:isInt,doubleClickZoom:false,boxZoom:false,keyboard:false,attributionControl:isInt};const m=L.map(id,o).setView(cds,zm);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:isInt?'© OSM':'',maxZoom:18}).addTo(m);const mrk=L.marker(cds).addTo(m);if(popTxt)mrk.bindPopup(popTxt);mapInstances[id]=m;return m;}catch(e){mc.innerHTML=`<p style="color:red;padding:10px;">Map Error</p>`;return null;}}
-    function getCart(){const s=localStorage.getItem(CART_KEY);try{const c=s?JSON.parse(s):[];return c.map(i=>({...i,quantity:Number(i.quantity)||1,price:Number(i.price)||0}));}catch(e){return[];}} function saveCart(c){localStorage.setItem(CART_KEY,JSON.stringify(c));updateCartCountDisplay();if(safeQuerySelector('.cart-page-content'))renderCartItems();} function addToCart(id,n,p,img){if(!id||!n||isNaN(parseFloat(p))){alert("Invalid item.");return;} const c=getCart(),idx=c.findIndex(i=>i.id===id);if(idx>-1)c[idx].quantity=(Number(c[idx].quantity)||0)+1;else c.push({id,name:n,price:parseFloat(p),image:img||'assets/images/placeholder_general.jpg',quantity:1});saveCart(c);alert(`"${n}" added!`);} function removeFromCart(id){let c=getCart();const r=c.find(i=>i.id===id);c=c.filter(i=>i.id!==id);alert(`"${r?r.name:'Item'}" removed.`);saveCart(c);} function updateCartItemQuantity(id,q){let c=getCart();const idx=c.findIndex(i=>i.id===id);const nQ=parseInt(q,10);if(idx>-1){if(!isNaN(nQ)&&nQ>0){c[idx].quantity=nQ;saveCart(c);}else removeFromCart(id);}} function updateCartCountDisplay(){const t=getCart().reduce((s,i)=>s+(Number(i.quantity)||0),0),sp=safeQuerySelector('#cart-icon .cart-count');if(sp){if(t>0){sp.textContent=`(${t})`;sp.classList.remove('is-empty');sp.style.display='inline-block';}else{sp.textContent='(0)';sp.classList.add('is-empty');sp.style.display='none';}}}
-    function getFavorites(){const s=localStorage.getItem(FAVORITES_KEY);try{const f=s?JSON.parse(s):[];return Array.isArray(f)?f:[];}catch(e){return[];}} function saveFavorites(f){if(!Array.isArray(f))return;localStorage.setItem(FAVORITES_KEY,JSON.stringify(f));if(safeQuerySelector('.favorites-page-content'))renderFavoriteLocationsPage();} function isFavorited(id){return getFavorites().includes(id);} function toggleFavorite(id){if(!id)return;let f=getFavorites();const l=allLocationsData.find(i=>i.id===id),n=l?l.title:'Location',idx=f.indexOf(id);if(idx>-1){f.splice(idx,1);alert(`"${n}" removed.`);}else{f.push(id);alert(`"${n}" added!`);}saveFavorites(f);updateAllFavoriteButtonStyles();}
-    function updateAllFavoriteButtonStyles(){const f=getFavorites();safeQuerySelectorAll('.btn-fav').forEach(b=>{const ct=b.closest('[data-location-id]');if(!ct?.dataset?.locationId)return;const id=ct.dataset.locationId,ic=safeQuerySelector('i',b);let tn=Array.from(b.childNodes).find(n=>n.nodeType===3&&n.textContent.trim());if(!tn){tn=document.createTextNode('');b.appendChild(tn);}if(ic&&tn){if(f.includes(id)){ic.classList.replace('far','fas');tn.textContent=b.classList.contains('btn-remove-fav')?' Remove':' Favorited';b.title="Remove";}else{ic.classList.replace('fas','far');tn.textContent=' Add to Favs';b.title="Add";}}});}
+    
+	const mapInstances = {};
+	let isLoggedIn = false; 
+	const CART_KEY = 'storyScapesCart_v2'; 
+	const FAVORITES_KEY = 'storyScapesFavorites_v2';
+	
+	function safeQuerySelector(s, c=document){
+		try{
+			return c.querySelector(s);}
+		catch(e){
+			return null;}
+	} 
+	
+	function safeQuerySelectorAll(s,c=document){
+		try{
+			return c.querySelectorAll(s);}
+		catch(e){
+			return[];}
+	}
+    
+	function openModal(el){
+		if(!el)
+			return;
+		el.style.display='block';
+		const pd=safeQuerySelector('#profile-dropdown');
+		if(pd)pd.classList.remove('active');
+	} 
+	
+	function closeModal(el){
+		if(!el)return;
+		el.style.display='none';
+	}
+    
+	function updateProfileDropdown(){
+		const dm=safeQuerySelector('#profile-dropdown');
+		if(!dm)return;dm.innerHTML='';
+		if(isLoggedIn){
+			dm.innerHTML=`<a href="#profile">Profile</a><a href="favorites-page.html">Favs</a><a href="cart-page.html">Cart</a><button id="logoutButton">Logout</button>`;
+			const lb=safeQuerySelector('#logoutButton',dm);if(lb)lb.addEventListener('click',handleLogout);
+		}
+		else
+		{
+			dm.innerHTML=`<a href="#" id="loginLink">Login</a><a href="#" id="registerLink">Register</a>`;
+			const ll=safeQuerySelector('#loginLink',dm),rl=safeQuerySelector('#registerLink',dm),lmo=safeQuerySelector('#loginModal'),rmo=safeQuerySelector('#registerModal');
+			if(ll&&lmo)ll.onclick=(e)=>{
+				e.preventDefault();
+				openModal(lmo);
+			};
+			if(rl&&rmo)rl.onclick=(e)=>{
+				e.preventDefault();
+				openModal(rmo);
+			}
+		;}
+	} 
+	
+	function handleLogout(){
+		isLoggedIn=false;
+		updateProfileDropdown();
+		alert('Logged out.');
+	}
+    
+	function initMiniMap(id,cds,zm=9,popTxt='',isInt=false){
+		if(typeof L==='undefined'){
+			return null;
+		}
+		
+		const mc=safeQuerySelector(`#${id}`);
+		if(!mc){
+			return null;
+		} 
+		if(mc._leaflet_id)return mapInstances[id]; 
+		if(!Array.isArray(cds)||cds.length!==2||typeof cds[0]!=='number'||typeof cds[1]!=='number'){
+			mc.innerHTML=`<p style="color:red;padding:10px;">Bad Coords</p>`;return null;
+		} 
+		try{
+			const o={scrollWheelZoom:isInt,dragging:isInt,zoomControl:true,tap:isInt,touchZoom:isInt,doubleClickZoom:false,boxZoom:false,keyboard:false,attributionControl:isInt};
+			const m=L.map(id,o).setView(cds,zm);
+			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:isInt?'© OSM':'',maxZoom:18}).addTo(m);
+			const mrk=L.marker(cds).addTo(m);
+			if(popTxt)mrk.bindPopup(popTxt);
+			mapInstances[id]=m;
+			return m;
+		}
+		catch(e){
+			mc.innerHTML=`<p style="color:red;
+  			padding:10px;">Map Error</p>`;
+			 return null;
+			}
+	}
+	
+	function getCart(){
+		const s=localStorage.getItem(CART_KEY);
+		try{
+			const c=s?JSON.parse(s):[];
+			return c.map(i=>({...i,quantity:Number(i.quantity)||1,price:Number(i.price)||0}));
+		}
+		catch(e){
+			return[];
+		}
+	} 
+	
+	function saveCart(c){
+		localStorage.setItem(CART_KEY,JSON.stringify(c));
+		updateCartCountDisplay();
+		if(safeQuerySelector('.cart-page-content'))renderCartItems();
+	} 
+	
+	function addToCart(id,n,p,img){
+		if(!id||!n||isNaN(parseFloat(p))){alert("Invalid item.");
+		return;
+		} 
+		const c=getCart(),idx=c.findIndex(i=>i.id===id);
+		if(idx>-1)c[idx].quantity=(Number(c[idx].quantity)||0)+1;
+		else c.push({id,name:n,price:parseFloat(p),image:img||'assets/images/placeholder_general.jpg',quantity:1});
+		saveCart(c);
+		alert(`"${n}" added!`);
+	} 
+	
+	function removeFromCart(id){
+		let c=getCart();
+		const r=c.find(i=>i.id===id);
+		c=c.filter(i=>i.id!==id);
+		alert(`"${r?r.name:'Item'}" removed.`);
+		saveCart(c);
+	} 
+	
+	function updateCartItemQuantity(id,q){
+		let c=getCart();
+		const idx=c.findIndex(i=>i.id===id);
+		const nQ=parseInt(q,10);
+		if(idx>-1){
+			if(!isNaN(nQ)&&nQ>0){
+				c[idx].quantity=nQ;
+				saveCart(c);
+			}
+			else removeFromCart(id);
+		}
+	}
+	
+	function updateCartCountDisplay(){
+		const t=getCart().reduce((s,i)=>s+(Number(i.quantity)||0),0),sp=safeQuerySelector('#cart-icon .cart-count');
+		if(sp){
+			if(t>0){
+			sp.textContent=`(${t})`;
+			sp.classList.remove('is-empty');
+			sp.style.display='inline-block';
+		}
+		else{
+			sp.textContent='(0)';
+			sp.classList.add('is-empty');
+			sp.style.display='none';
+			}
+		}
+	}
+    
+	function getFavorites(){
+		const s=localStorage.getItem(FAVORITES_KEY);
+		try{
+			const f=s?JSON.parse(s):[];
+			return Array.isArray(f)?f:[];}
+		catch(e){
+			return[];
+		}
+	} 
+	
+	function saveFavorites(f){
+		if(!Array.isArray(f))return;
+		localStorage.setItem(FAVORITES_KEY,JSON.stringify(f));
+		if(safeQuerySelector('.favorites-page-content'))renderFavoriteLocationsPage();
+	}
+	
+	function isFavorited(id){
+		return getFavorites().includes(id);
+	}
+	
+	function toggleFavorite(id){
+		if(!id)return;
+		let f=getFavorites();
+		const l=allLocationsData.find(i=>i.id===id),n=l?l.title:'Location',idx=f.indexOf(id);
+		if(idx>-1){
+			f.splice(idx,1);
+			alert(`"${n}" removed.`);
+		} else {
+			f.push(id);
+			alert(`"${n}" added!`);
+		}
+		saveFavorites(f);
+		updateAllFavoriteButtonStyles();
+	}
+	
+    function updateAllFavoriteButtonStyles(){
+	    const f=getFavorites();safeQuerySelectorAll('.btn-fav').forEach(b=>{
+		    const ct=b.closest('[data-location-id]');
+		    if(!ct?.dataset?.locationId)
+			    return;
+		    const id=ct.dataset.locationId,ic=safeQuerySelector('i',b);
+			    let tn=Array.from(b.childNodes).find(n=>n.nodeType===3&&n.textContent.trim());
+		    if(!tn){
+			    tn=document.createTextNode('');
+			    b.appendChild(tn);
+		    }
+		    if(ic&&tn){
+			    if(f.includes(id)){
+				    ic.classList.replace('far','fas');
+				    tn.textContent=b.classList.contains('btn-remove-fav')?' Remove':' Favorited';
+				    b.title="Remove";
+			    }
+			    else{
+				    ic.classList.replace('fas','far');tn.textContent=' Add to Favs';b.title="Add";
+			    }
+		    }
+	    });
+    }
 
     // ===================================================================
     // == HTML Generation  ==
